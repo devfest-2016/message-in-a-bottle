@@ -9,8 +9,8 @@
 <!---
 - [schedule] (https://docs.google.com/spreadsheets/d/1ObVweavGyCD0uSd9dS_t2vKsTwBAIjPOSWiVCclh78Y/edit?usp=sharing)
 -->
-- [Google Calendar Hackathon] (https://calendar.google.com/calendar/embed?src=OXM4a2FjMjVvNTNzZGplZm9vMmY4cTVrdGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
-- [Google Calendar Talks] (https://calendar.google.com/calendar/embed?src=OTc3YzBxN2t1ZnFham82NDNvN25oZ21xcjhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
+- [Calendar link: Hackathon] (https://calendar.google.com/calendar/embed?src=OXM4a2FjMjVvNTNzZGplZm9vMmY4cTVrdGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
+- [Calendar link: Talks] (https://calendar.google.com/calendar/embed?src=OTc3YzBxN2t1ZnFham82NDNvN25oZ21xcjhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
 
 # Monitoring
 - We will use firebase to monitor the firebase/devfest hackathon :)  See [https://github-hackathon.firebaseapp.com/] (https://github-hackathon.firebaseapp.com/)
