@@ -4,18 +4,13 @@ import Foundation
 
 class Ocean {
     
-    var name: String
-    var body: String
-    var postedAt: Date
-    var from: String
+    var name: String?
+    var messages = [Message]
     
-    init(name: String, body: String, postedAt: Date, from: String) {
+    init(name: String, msgs: [Message]) {
         self.name = name
-        self.body = body
-        self.postedAt = postedAt
-        self.from = from
+        self.messages = msgs
     }
     
-    
-    
 }
+
