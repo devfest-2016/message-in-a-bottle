@@ -10,6 +10,7 @@ class Message {
     let timestamp: Double
     let dateSent: Date
     var from: User?
+    let userUniqueKey: String
     
     init(messageUniqueID: String, title: String, body: String, userUniqueKey: String, timestamp: Double) {
         self.messageUniqueID = messageUniqueID
@@ -19,14 +20,16 @@ class Message {
         self.timestamp = timestamp
         self.dateSent = Date(timeIntervalSince1970: timestamp)
         
-        User.retrieveUser(with: userUniqueKey) { (retrievedUser) in
-            if let retrievedUser = retrievedUser {
-                self.from = retrievedUser
-            } else {
-                self.from = nil
-            }
+        self.userUniqueKey = userUniqueKey
+    }
+    
+    func setUser(completion: ()-> Void) {
+        User.retrieveUser(with: userUniqueKey) { (user) in
+            self.from = user
         }
     }
+    
+    
     
     
 }
