@@ -53,8 +53,10 @@ class BottlesViewController: UICollectionViewController, UICollectionViewDelegat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bottleCell", for: indexPath) as! BottleCollectionViewCell
     
         cell.backgroundColor = UIColor.red
-        cell.bottleLabel.text = bottles[indexPath.row].title
-//    
+        
+        dump(bottles[indexPath.row])
+        
+//
 //        cell.bgImageView.image = UIImage(named: "")
 //        cell.fgImageView.image = UIImage(named: "")
 //        cell.bottleImageView.image = UIImage(named: "")

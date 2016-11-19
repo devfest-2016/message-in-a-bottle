@@ -61,44 +61,55 @@ class FirebaseMethods {
     // MARK: - Pull all bottles for user
     
     static func retrieveBottlesForUser(uniqueID: String, completion: @escaping ([Message]) -> Void) {
-        let userRef = FIRDatabase.database().reference().child("users").child(uniqueID)
-        
-        print("PROGRESS: In the firebase method")
-        print(userRef)
+        let userRef = FIRDatabase.database().reference().child("users").child(uniqueID).child("bottles")
         
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            print("PROGRESS: Observing event")
-            dump(snapshot)
-            print(snapshot.value)
             var userMessages = [Message]()
             
-            guard let messagesRaw = snapshot.value else { print("snapshot.value has no value"); return }
+            guard let messagesRaw = snapshot.value else { print("FAILURE: snapshot.value has no value"); return }
             
-            print("messagesRaw: \(messagesRaw)")
+            print("PROGRESS: messagesRaw: \(messagesRaw)")
             
             guard let messages = messagesRaw as? [String:Any] else { print("FAILURE: messagesRaw cannot be converted to messages"); return }
             
-            for (messageID, messageInfoRaw) in messages {
-                print("")
-                guard let messageInfo = messageInfoRaw as? [String:String] else { return }
+            for message in messages {
+                let messageID = message.key
+                print(message)
+                guard let oceanID = message.value as? String else { print("FAILURE: message.value has no value"); return }
                 
-                guard
-                    let title = messageInfo["title"],
-                    let body = messageInfo["messageContent"],
-                    let timestampString = messageInfo["timestamp"],
-                    let timestamp = Double(timestampString),
-                    let userUniqueKey = messageInfo["uniqueKey"]
-                    else { print("FAILURE: Cannot cast "); return }
-                
-                let message = Message(messageUniqueID: messageID, title: title, body: body, userUniqueKey: userUniqueKey, timestamp: timestamp)
-                userMessages.append(message)
+                FirebaseMethods.retrieveBottle(messageID: messageID, oceanID: oceanID, completion: { (message) in
+                    userMessages.append(message)
+                    
+                    if userMessages.count == messages.count {
+                        completion(userMessages)
+                    }
+                })
             }
-            completion(userMessages)
         })
         
         
     }
-    
+    private static func retrieveBottle(messageID: String, oceanID: String, completion: @escaping (Message)->Void){
+        let bottleRef = FIRDatabase.database().reference().child("oceans").child(oceanID).child(messageID)
+        
+        bottleRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let messageInfo = snapshot.value as? [String: Any] else { print("FAILURE: snapshot.value has no value"); return }
+        
+            
+            guard
+                let userUniqueKey = messageInfo["uniqueKey"] as? String,
+                let title = messageInfo["title"] as? String,
+                let body = messageInfo["body"] as? String,
+                let timestamp = messageInfo["timestamp"] as? Double
+            else { print("FAILURE: Data unavailable in messageInfo");return }
+                
+            
+            let message = Message(messageUniqueID: messageID, title: title, body: body, userUniqueKey: userUniqueKey, timestamp: timestamp)
+            message.setUser {
+                completion(message)
+            }
+        })
+    }
     
     // MARK: - Create chat room
     
@@ -281,7 +292,6 @@ class FirebaseMethods {
             }
             completion(chatRoomArray)
         })
-        
         
         
     }

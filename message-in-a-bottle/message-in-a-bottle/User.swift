@@ -23,6 +23,8 @@ class User {
 
     
     static func retrieveUser(with uniqueID: String, completion: @escaping (User?)-> Void) {
+        print("PROGRESS: Retreiving User Data")
+        
         let userRef = FIRDatabase.database().reference().child("users").child(uniqueID)
         
         
