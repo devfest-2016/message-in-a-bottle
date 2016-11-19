@@ -46,11 +46,11 @@ class FirebaseMethods {
     // MARK: - Create new bottle message
     
     
-    static func createNewBottle(uniqueID: String, oceanID: String, messageContent: String) {
+    static func createNewBottle(uniqueID: String, oceanID: String, title: String, messageContent: String) {
         
         let ref = FIRDatabase.database().reference().root
         
-        let messageDictionary = ["uniqueKey": uniqueID, "messageContent": messageContent, "timestamp": String(describing: Date().timeIntervalSince1970)]
+        let messageDictionary = ["uniqueKey": uniqueID, "title": title, "messageContent": messageContent, "timestamp": String(describing: Date().timeIntervalSince1970)]
         let messageID = ref.childByAutoId().key
         
         ref.child("bottle").child(oceanID).setValue(messageDictionary, forKey: messageID)
@@ -60,17 +60,31 @@ class FirebaseMethods {
     
     // MARK: - Pull all bottles for user
     
-    static func retrieveBottlesForUser(uniqueID: String, completion: ([Message]) -> Void) {
+    static func retrieveBottlesForUser(uniqueID: String, completion: @escaping ([Message]) -> Void) {
         let userRef = FIRDatabase.database().reference().child("users").child(uniqueID).child("bottles")
         
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            var userMessages = [Message]()
+            
             let messagesRaw = snapshot.value as? [String:Any]
             
             guard let messages = messagesRaw else { return }
             
             for (messageID, messageInfoRaw) in messages {
                 guard let messageInfo = messageInfoRaw as? [String:String] else { return }
+                
+                guard
+                    let title = messageInfo["title"],
+                    let body = messageInfo["messageContent"],
+                    let timestampString = messageInfo["timestamp"],
+                    let timestamp = Double(timestampString),
+                    let userUniqueKey = messageInfo["uniqueKey"]
+                    else { return }
+                
+                let message = Message(messageUniqueID: messageID, title: title, body: body, userUniqueKey: userUniqueKey, timestamp: timestamp)
+                userMessages.append(message)
             }
+            completion(userMessages)
         })
         
         

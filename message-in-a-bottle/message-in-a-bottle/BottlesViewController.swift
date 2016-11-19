@@ -25,11 +25,20 @@ class BottlesViewController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func retrieveBottleMessages() {
+        guard let uniqueID = currentUser?.uniqueKey else { return }
+        
+        FirebaseMethods.retrieveBottlesForUser(uniqueID: uniqueID) { (messages) in
+            self.bottles = messages
+            self.collectionView!.reloadData()
+        }
     }
+    
+    
+    
+    
+    
 
     /*
     // MARK: - Navigation
