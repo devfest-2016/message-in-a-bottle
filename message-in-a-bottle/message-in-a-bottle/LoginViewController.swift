@@ -47,6 +47,7 @@ class LoginViewController: UIViewController {
         guard let email = emailTextField.text else {return}
         guard let password = passwordTextField.text else {return}
         FirebaseMethods.signInButton(email: email, password: password)
+        
     }
     
     @IBAction func signupButtonAction(_ sender: UIButton) {
