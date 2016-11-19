@@ -23,6 +23,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        User.retrieveUser(with: "L0HzRRZn1GZhXjEfdaT35q5N3ck2") { (user) in
+            dump(user)
+        }
         self.view.backgroundColor = UIColor.blue
         // Do any additional setup after loading the view.
     }
@@ -57,7 +60,6 @@ class LoginViewController: UIViewController {
         FirebaseMethods.signUpButton(email: email, password: password, firstName: firstName, lastName: lastName)
         
     }
-    
     
     
 

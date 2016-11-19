@@ -1,6 +1,7 @@
 
 
 import Foundation
+import Firebase
 
 class User {
     
@@ -19,7 +20,28 @@ class User {
         self.uniqueKey = uniqueKey
         
     }
+
     
-    
+    static func retrieveUser(with uniqueID: String, completion: @escaping (User?)-> Void) {
+        let userRef = FIRDatabase.database().reference().child("users").child(uniqueID)
+        
+        
+        userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            let userInfoRaw = snapshot.value as? [String:Any]
+            
+            guard
+                let userInfo = userInfoRaw,
+                let firstName = userInfo["firstName"] as?  String,
+                let lastName = userInfo["lastName"] as? String,
+                let email = userInfo["email"] as? String,
+                let uniqueKey = userInfo["uniqueKey"] as? String
+                else { print("\n\n\n\n\n\(userInfoRaw)\n\n\n\n"); return }
+            
+            print("Got user info: \(userInfo)")
+            
+            let user = User(firstName: firstName, lastName: lastName, email: email, uniqueKey: uniqueKey)
+            completion(user)
+        })
+    }
     
 }
