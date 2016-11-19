@@ -4,21 +4,26 @@ import Foundation
 
 class Message {
     
+    var messageUniqueID: String
     var title: String
     var body: String
     var postedAt: Date
-    var from: User
-    var ocean: Ocean
-    var userUniqueKey: String
+    var from: User?
     
-    init(title: String, body: String, postedAt: Date, from: User, ocean: Ocean, userUniqueKey: String) {
+    init(messageUniqueID: String, title: String, body: String, userUniqueKey: String, timestamp: Double) {
+        self.messageUniqueID = messageUniqueID
         self.title = title
         self.body = body
-        self.postedAt = postedAt
-        self.from = from
-        self.ocean = ocean
-        self.userUniqueKey = userUniqueKey
         
+        self.postedAt = Date(timeIntervalSince1970: timestamp)
+        
+        User.retrieveUser(with: userUniqueKey) { (retrievedUser) in
+            if let retrievedUser = retrievedUser {
+                self.from = retrievedUser
+            } else {
+                self.from = nil
+            }
+        }
     }
     
 }
