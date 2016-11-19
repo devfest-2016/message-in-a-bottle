@@ -206,7 +206,7 @@ class FirebaseMethods {
     }
     
     
-    func deleteMessage(from ocean: Ocean) {
+    static func deleteMessage(from ocean: Ocean) {
         let oceanRef = FIRDatabase.database().reference().child("oceans").child(ocean.name)
         
         oceanRef.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -223,6 +223,68 @@ class FirebaseMethods {
         
     }
     
+    
+    static func retrieveChatMessages(for userID: String, chatID: String, with completion: @escaping ([ChatMessage]) -> Void) {
+        let chatRef = FIRDatabase.database().reference().child("users").child(userID).child("chats").child(chatID)
+        
+        chatRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let chatInfoRaw = snapshot.value as? [String:Any] else {return}
+            var chatMessages = [ChatMessage]()
+            
+            for (chatMessageUniqueID, chatMessage) in chatInfoRaw {
+                let chatMessageInfoRaw = chatMessage as? [String:Any]
+                
+                guard
+                    let chatInfo = chatMessageInfoRaw as? [String:String],
+                    let senderName = chatInfo["senderName"],
+                    let messageID = chatInfo["messageID"],
+                    let senderUniqueKey = chatInfo["senderUniqueKey"],
+                    let content = chatInfo["content"],
+                    let timestampString = chatInfo["timeStampString"],
+                    let timestamp = Double(timestampString)
+                    else { return }
+                
+                let chatMessage = ChatMessage(senderName: senderName, messageID: messageID, senderUniqueKey: senderUniqueKey, content: content, timestamp: timestamp)
+                chatMessages.append(chatMessage)
+            }
+            
+            completion(chatMessages)
+        })
+    }
+
+    
+    static func retrieveChatRooms(for userID: String, with completion: @escaping ([Chatroom]) -> Void) {
+        let chatRef = FIRDatabase.database().reference().child("users").child(userID)
+        
+        chatRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            var chatRoomArray = [Chatroom]()
+            guard let chatroomRaw = snapshot.value as? [String:Any] else {return}
+            
+            for (chatUniqueID, chat) in chatroomRaw {
+                let chatroomInfoRaw = chat as? [String:Any]
+                
+                guard
+                    let chatroomInfo = chatroomRaw as? [String:String],
+                    let chatID = chatroomInfo["chatID"],
+                    let lastMessage = chatroomInfo["lastMessage"],
+                    let chatMessages = chatroomInfo["chatMessages"],
+                    let partnerName = chatroomInfo["partnerName"],
+                    let timestampString = chatroomInfo["timeStampString"],
+                    let timestamp = Double(timestampString)
+                    else { return }
+                
+                
+                let chatroom = Chatroom(chatID: chatID, timestamp: timestamp, lastMessage: lastMessage, partnerName: partnerName)
+                
+                chatRoomArray.append(chatroom)
+                
+            }
+            completion(chatRoomArray)
+        })
+        
+        
+        
+    }
     
     
     /*
