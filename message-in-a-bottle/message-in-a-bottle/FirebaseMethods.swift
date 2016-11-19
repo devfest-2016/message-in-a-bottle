@@ -46,15 +46,56 @@ class FirebaseMethods {
     // MARK: - Create new bottle message
     
     
-    static func createNewBottle(uniqueID: String, oceanID: String, messageContent: String) {
+    static func createNewBottle(uniqueID: String, oceanID: String, title: String, messageContent: String) {
         
         let ref = FIRDatabase.database().reference().root
         
-        let messageDictionary = ["uniqueKey": uniqueID, "messageContent": messageContent, "timestamp": String(describing: Date().timeIntervalSince1970)]
+        let messageDictionary = ["uniqueKey": uniqueID, "title": title, "messageContent": messageContent, "timestamp": String(describing: Date().timeIntervalSince1970)]
         let messageID = ref.childByAutoId().key
         
         ref.child("bottle").child(oceanID).setValue(messageDictionary, forKey: messageID)
         ref.child("users").child(uniqueID).child("bottles").child(messageID).setValue("true")
+        
+    }
+    
+    // MARK: - Pull all bottles for user
+    
+    static func retrieveBottlesForUser(uniqueID: String, completion: @escaping ([Message]) -> Void) {
+        let userRef = FIRDatabase.database().reference().child("users").child(uniqueID)
+        
+        print("PROGRESS: In the firebase method")
+        print(userRef)
+        
+        userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            print("PROGRESS: Observing event")
+            dump(snapshot)
+            print(snapshot.value)
+            var userMessages = [Message]()
+            
+            guard let messagesRaw = snapshot.value else { print("snapshot.value has no value"); return }
+            
+            print("messagesRaw: \(messagesRaw)")
+            
+            guard let messages = messagesRaw as? [String:Any] else { print("FAILURE: messagesRaw cannot be converted to messages"); return }
+            
+            for (messageID, messageInfoRaw) in messages {
+                print("")
+                guard let messageInfo = messageInfoRaw as? [String:String] else { return }
+                
+                guard
+                    let title = messageInfo["title"],
+                    let body = messageInfo["messageContent"],
+                    let timestampString = messageInfo["timestamp"],
+                    let timestamp = Double(timestampString),
+                    let userUniqueKey = messageInfo["uniqueKey"]
+                    else { print("FAILURE: Cannot cast "); return }
+                
+                let message = Message(messageUniqueID: messageID, title: title, body: body, userUniqueKey: userUniqueKey, timestamp: timestamp)
+                userMessages.append(message)
+            }
+            completion(userMessages)
+        })
+        
         
     }
     

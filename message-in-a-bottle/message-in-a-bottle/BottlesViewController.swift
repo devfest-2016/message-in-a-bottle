@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 private let reuseIdentifier = "Cell"
 
 class BottlesViewController: UICollectionViewController {
+    
+    var bottles = [Message]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,15 +22,32 @@ class BottlesViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "bottleCell")
 
         // Do any additional setup after loading the view.
+        
+        retrieveBottleMessages()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func retrieveBottleMessages() {
+        
+        print("PROGRESS: Retreiving Bottle Messages...")
+        guard let uniqueID = FIRAuth.auth()?.currentUser?.uid else { return }
+        
+        FirebaseMethods.retrieveBottlesForUser(uniqueID: uniqueID) { (messages) in
+            print("PROGRESS: Ran the Retrieve Bottle Messages Firebase method...")
+            
+            print("PROGRESS: Retreived \(messages.count) messages...")
+            self.bottles = messages
+            self.collectionView!.reloadData()
+            print("SUCCESS: Done!")
+        }
     }
+    
+    
+    
+    
+    
 
     /*
     // MARK: - Navigation
@@ -43,19 +63,19 @@ class BottlesViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return bottles.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bottleCell", for: indexPath)
     
-        // Configure the cell
+        cell.backgroundColor = UIColor.red
     
         return cell
     }

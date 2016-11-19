@@ -11,6 +11,7 @@
 		1B0BBE1D1DE0980E0018E274 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B0BBE1B1DE0980E0018E274 /* Main.storyboard */; };
 		1B0BBE1F1DE0980E0018E274 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B0BBE1E1DE0980E0018E274 /* Assets.xcassets */; };
 		1B0BBE221DE0980E0018E274 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B0BBE201DE0980E0018E274 /* LaunchScreen.storyboard */; };
+		1B0BBE2A1DE0EA720018E274 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0BBE291DE0EA720018E274 /* Date.swift */; };
 		B50B831D1DE0A19D0099A0AF /* FirebaseMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B831C1DE0A19D0099A0AF /* FirebaseMethods.swift */; };
 		B50B831F1DE0A1EA0099A0AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B50B831E1DE0A1EA0099A0AF /* GoogleService-Info.plist */; };
 		B50B83211DE0A1FE0099A0AF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B83201DE0A1FE0099A0AF /* User.swift */; };
@@ -30,6 +31,8 @@
 		E4365B8E1DE0A025006952D2 /* BottlesAddMsgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4365B8D1DE0A025006952D2 /* BottlesAddMsgViewController.swift */; };
 		E4365B901DE0A033006952D2 /* BottlesViewMsgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4365B8F1DE0A033006952D2 /* BottlesViewMsgViewController.swift */; };
 		E446AE141DE09D4E0084A325 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E446AE131DE09D4E0084A325 /* LandingViewController.swift */; };
+		E48955781DE0D95E0006F996 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48955771DE0D95E0006F996 /* Icons.swift */; };
+		E489557D1DE0DD5F0006F996 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = E489557C1DE0DD5F0006F996 /* FontAwesome.otf */; };
 		F483EE138C22861AF2A554D5 /* Pods_message_in_a_bottle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B67EFF4C0C2B8B90627619E1 /* Pods_message_in_a_bottle.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +43,7 @@
 		1B0BBE1E1DE0980E0018E274 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B0BBE211DE0980E0018E274 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B0BBE231DE0980E0018E274 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B0BBE291DE0EA720018E274 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		2E7740879161FE6E5F218914 /* Pods-message-in-a-bottle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-message-in-a-bottle.release.xcconfig"; path = "Pods/Target Support Files/Pods-message-in-a-bottle/Pods-message-in-a-bottle.release.xcconfig"; sourceTree = "<group>"; };
 		B50B831C1DE0A19D0099A0AF /* FirebaseMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseMethods.swift; sourceTree = "<group>"; };
 		B50B831E1DE0A1EA0099A0AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 		E4365B8D1DE0A025006952D2 /* BottlesAddMsgViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottlesAddMsgViewController.swift; sourceTree = "<group>"; };
 		E4365B8F1DE0A033006952D2 /* BottlesViewMsgViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottlesViewMsgViewController.swift; sourceTree = "<group>"; };
 		E446AE131DE09D4E0084A325 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		E48955771DE0D95E0006F996 /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		E489557C1DE0DD5F0006F996 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +109,10 @@
 				B50B831C1DE0A19D0099A0AF /* FirebaseMethods.swift */,
 				B50B831E1DE0A1EA0099A0AF /* GoogleService-Info.plist */,
 				1B0BBE1B1DE0980E0018E274 /* Main.storyboard */,
-				1B0BBE1E1DE0980E0018E274 /* Assets.xcassets */,
+				E48955791DE0D9B40006F996 /* Assets */,
 				1B0BBE201DE0980E0018E274 /* LaunchScreen.storyboard */,
 				1B0BBE231DE0980E0018E274 /* Info.plist */,
+				1B0BBE291DE0EA720018E274 /* Date.swift */,
 			);
 			path = "message-in-a-bottle";
 			sourceTree = "<group>";
@@ -178,8 +185,18 @@
 				E446AE131DE09D4E0084A325 /* LandingViewController.swift */,
 				B5D2DDA61DE0A625001F2CCE /* LoginViewController.swift */,
 				B50B83281DE0D9D90099A0AF /* ChatVC */,
+				E48955771DE0D95E0006F996 /* Icons.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E48955791DE0D9B40006F996 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E489557C1DE0DD5F0006F996 /* FontAwesome.otf */,
+				1B0BBE1E1DE0980E0018E274 /* Assets.xcassets */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B0BBE221DE0980E0018E274 /* LaunchScreen.storyboard in Resources */,
+				E489557D1DE0DD5F0006F996 /* FontAwesome.otf in Resources */,
 				B50B831F1DE0A1EA0099A0AF /* GoogleService-Info.plist in Resources */,
 				1B0BBE1F1DE0980E0018E274 /* Assets.xcassets in Resources */,
 				1B0BBE1D1DE0980E0018E274 /* Main.storyboard in Resources */,
@@ -323,7 +341,9 @@
 				E4365B8C1DE0A002006952D2 /* BottlesViewOceansViewController.swift in Sources */,
 				E4365B8A1DE09F39006952D2 /* BottlesViewController.swift in Sources */,
 				B5D2DDAB1DE0A9D5001F2CCE /* OceanCollectionViewCell.swift in Sources */,
+				E48955781DE0D95E0006F996 /* Icons.swift in Sources */,
 				1B0BBE181DE0980E0018E274 /* AppDelegate.swift in Sources */,
+				1B0BBE2A1DE0EA720018E274 /* Date.swift in Sources */,
 				B5D2DDAD1DE0A9DE001F2CCE /* BottleCollectionViewCell.swift in Sources */,
 				B5D2DDA71DE0A625001F2CCE /* LoginViewController.swift in Sources */,
 			);
