@@ -5,8 +5,7 @@ import Firebase
 
 
 class FirebaseMethods {
-    
-    
+
     
     //MARK: - Sign Up & Log In Funcs
     
@@ -30,7 +29,7 @@ class FirebaseMethods {
         if email != "" && password != "" {
             FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
                 if error == nil {
-                    let userDictionary = [(user?.uid)! : ["email": email, "firstName": firstName, "lastName": lastName, "uniqueKey": (user?.uid)!]]
+                    let userDictionary = ["email": email, "firstName": firstName, "lastName": lastName, "uniqueKey": (user?.uid)!]
                     
                     ref.child("users").child((user?.uid)!).setValue(userDictionary)
                     
@@ -93,14 +92,25 @@ class FirebaseMethods {
     
     // MARK: - Remove user from chat room
     
-    static func removeUserFromChat(user: User) {
+    static func removeUserFromChat(chatID: String, messageID: String) {
+        
         
         let ref = FIRDatabase.database().reference().root
+        let user = FIRAuth.auth()?.currentUser?.uid
         
-        ref.child("users").child(user.uniqueKey).child("chats").observeSingleEvent(of: .value, with: { snapshot in
+        ref.child("users").child(user!).child("chats").observeSingleEvent(of: .value, with: { snapshot in
             
             if let chatSnapshot = snapshot.value as? [String: Any] {
-                print(chatSnapshot)
+                for item in chatSnapshot {
+                    
+                    if item.key == chatID {
+                        
+                        ref.child("users").child(user!).child("chats").removeValue()
+                        ref.child("chats").child(chatID).removeValue()
+                        ref.child("chatMessages").child(chatID).child(messageID).removeValue()
+                        
+                    }
+                }
             }
             
         })
