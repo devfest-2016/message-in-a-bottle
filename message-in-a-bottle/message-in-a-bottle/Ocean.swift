@@ -7,6 +7,7 @@ class Ocean {
     
     var name: String
     var messages = [Message]()
+    var acceptedMessageID: String?
 
     
     init(name: String) {
@@ -18,6 +19,12 @@ class Ocean {
             self.messages = messages
             completion()
         }
+    }
+    
+    func determineAcceptedMessage(with completion: @escaping () -> Void) {
+        
+        
+        
     }
     
     

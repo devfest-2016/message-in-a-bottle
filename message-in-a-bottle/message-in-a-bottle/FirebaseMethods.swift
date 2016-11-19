@@ -160,6 +160,23 @@ class FirebaseMethods {
     }
     
     
+    func deleteMessage(from ocean: Ocean) {
+        let oceanRef = FIRDatabase.database().reference().child("oceans").child(ocean.name)
+        
+        oceanRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let oceanInfoRaw = snapshot.value as? [String: Any] else {return}
+            
+            for item in oceanInfoRaw {
+                
+            }
+            
+            
+        })
+        
+    }
+    
+    
+    
     /*
      Sending data TO Firebase:
      

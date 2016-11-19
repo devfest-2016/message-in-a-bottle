@@ -26,4 +26,10 @@ class Message {
         }
     }
     
+    
+    func acceptMessage() {
+        
+        
+    }
+    
 }
