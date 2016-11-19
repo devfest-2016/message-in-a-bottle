@@ -54,6 +54,7 @@ class FirebaseMethods {
         let messageID = ref.childByAutoId().key
         
         ref.child("bottle").child(oceanID).setValue(messageDictionary, forKey: messageID)
+        ref.child("users").child(uniqueID).child("bottles").child(messageID).setValue("true")
         
     }
     
@@ -93,6 +94,8 @@ class FirebaseMethods {
         ref.child("chats").setValue(["previousMessage": messageContent, "timestamp": timeStamp], forKey: chatID)
 
         ref.child("chatMessages").child(chatID).setValue(["senderName": sender.name, "senderUniqueKey": sender.uniqueKey, "messageContent": messageContent, "timestamp": timeStamp] , forKey: messageID)
+        
+        
 
         
     }
@@ -119,7 +122,7 @@ class FirebaseMethods {
                         ref.child("chatMessages").child(chatID).child(messageID).removeValue()
                         
                         guard let secondUserUniqueKey = item.value as? String else {return}
-                        ref.child("users").child(secondUserUniqueKey).child("chats").removeValue()
+                        ref.child("users").child(secondUserUniqueKey).child("chats").child(messageID).removeValue()
                         
                     }
                 }
@@ -167,12 +170,14 @@ class FirebaseMethods {
         
         oceanRef.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let oceanInfoRaw = snapshot.value as? [String: Any] else {return}
+            guard let acceptedMessageID = ocean.acceptedMessageID else {return}
+            
             
             for item in oceanInfoRaw {
-                
+                if item.key == acceptedMessageID {
+                    oceanRef.child("chatMessages").child(acceptedMessageID).removeValue()
+                }
             }
-            
-            
         })
         
     }

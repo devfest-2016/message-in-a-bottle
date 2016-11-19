@@ -21,10 +21,10 @@ class Ocean {
         }
     }
     
-    func determineAcceptedMessage(with completion: @escaping () -> Void) {
+    func determineAcceptedMessage(indexPath: Int, with completion: @escaping () -> Void) {
         
-        
-        
+        acceptedMessageID = messages[indexPath].messageUniqueID
+
     }
     
     static let oceanNames = [
