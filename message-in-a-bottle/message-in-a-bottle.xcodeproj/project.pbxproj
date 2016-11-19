@@ -22,6 +22,7 @@
 		B5D2DDAD1DE0A9DE001F2CCE /* BottleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DDAC1DE0A9DE001F2CCE /* BottleCollectionViewCell.swift */; };
 		B5D2DDB21DE0AE9B001F2CCE /* Chatroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DDB11DE0AE9B001F2CCE /* Chatroom.swift */; };
 		B5D2DDB41DE0AEE2001F2CCE /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DDB31DE0AEE2001F2CCE /* ChatMessage.swift */; };
+		B5D2DDB61DE0B519001F2CCE /* OceanBottlesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DDB51DE0B519001F2CCE /* OceanBottlesCollectionViewController.swift */; };
 		E4365B8A1DE09F39006952D2 /* BottlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4365B891DE09F39006952D2 /* BottlesViewController.swift */; };
 		E4365B8C1DE0A002006952D2 /* BottlesViewOceansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4365B8B1DE0A002006952D2 /* BottlesViewOceansViewController.swift */; };
 		E4365B8E1DE0A025006952D2 /* BottlesAddMsgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4365B8D1DE0A025006952D2 /* BottlesAddMsgViewController.swift */; };
@@ -49,6 +50,7 @@
 		B5D2DDAC1DE0A9DE001F2CCE /* BottleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottleCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5D2DDB11DE0AE9B001F2CCE /* Chatroom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chatroom.swift; sourceTree = "<group>"; };
 		B5D2DDB31DE0AEE2001F2CCE /* ChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		B5D2DDB51DE0B519001F2CCE /* OceanBottlesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OceanBottlesCollectionViewController.swift; sourceTree = "<group>"; };
 		B67EFF4C0C2B8B90627619E1 /* Pods_message_in_a_bottle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_message_in_a_bottle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E063B8AA5300404125CA2557 /* Pods-message-in-a-bottle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-message-in-a-bottle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-message-in-a-bottle/Pods-message-in-a-bottle.debug.xcconfig"; sourceTree = "<group>"; };
 		E4365B891DE09F39006952D2 /* BottlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottlesViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		E4365B921DE0A1CF006952D2 /* OceansVC */ = {
 			isa = PBXGroup;
 			children = (
+				B5D2DDB51DE0B519001F2CCE /* OceanBottlesCollectionViewController.swift */,
 				B5D2DDAA1DE0A9D5001F2CCE /* OceanCollectionViewCell.swift */,
 				B5D2DDA81DE0A73F001F2CCE /* OceansCollectionViewController.swift */,
 			);
@@ -300,6 +303,7 @@
 				B5D2DDB21DE0AE9B001F2CCE /* Chatroom.swift in Sources */,
 				E4365B8E1DE0A025006952D2 /* BottlesAddMsgViewController.swift in Sources */,
 				E4365B901DE0A033006952D2 /* BottlesViewMsgViewController.swift in Sources */,
+				B5D2DDB61DE0B519001F2CCE /* OceanBottlesCollectionViewController.swift in Sources */,
 				E4365B8C1DE0A002006952D2 /* BottlesViewOceansViewController.swift in Sources */,
 				E4365B8A1DE09F39006952D2 /* BottlesViewController.swift in Sources */,
 				B5D2DDAB1DE0A9D5001F2CCE /* OceanCollectionViewCell.swift in Sources */,
