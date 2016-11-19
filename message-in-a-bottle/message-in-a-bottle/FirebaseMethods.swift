@@ -74,7 +74,7 @@ class FirebaseMethods {
             
             for message in messages {
                 let messageID = message.key
-                guard let oceanID = message.value as? String else { print("FAILURE: message.value has no value") }
+                guard let oceanID = message.value as? String else { print("FAILURE: message.value has no value"); return }
                 
                 FirebaseMethods.retrieveBottle(messageID: messageID, oceanID: oceanID, completion: { (message) in
                     userMessages.append(message)
@@ -233,14 +233,14 @@ class FirebaseMethods {
     }
     
     
-    static func retrieveChatMessages(for user: User, chatID: String, with completion: @escaping ([ChatMessage]) -> Void) {
-        let chatRef = FIRDatabase.database().reference().child("users").child(user.uniqueKey).child("chats").child(chatID)
+    static func retrieveChatMessages(for userID: String, chatID: String, with completion: @escaping ([ChatMessage]) -> Void) {
+        let chatRef = FIRDatabase.database().reference().child("users").child(userID).child("chats").child(chatID)
         
         chatRef.observeSingleEvent(of: .value, with: { (snapshot) in
             let chatInfoRaw = snapshot.value as? [String:Any]
             var chatMessages = [ChatMessage]()
             
-            for (chatMessageUniqueID, chatMessage) in chatInfoRaw {
+            for (chatMessageUniqueID, chatMessage) in chatInfoRaw! {
                 let chatMessageInfoRaw = chatMessage as? [String:Any]
                 
                 guard
@@ -262,18 +262,18 @@ class FirebaseMethods {
     }
 
     
-    static func retrieveChatRooms(for user: User, with completion: ([Chatroom]) -> Void) {
-        let chatRef = FIRDatabase.database().reference().child("users").child(user.uniqueKey)
+    static func retrieveChatRooms(for userID: String, with completion: @escaping ([Chatroom]) -> Void) {
+        let chatRef = FIRDatabase.database().reference().child("users").child(userID)
         
-        chatRef.observeSingleEvent(of: .value) { (snapshot) in
-            let chatRoomArray = [Chatroom]()
+        chatRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            var chatRoomArray = [Chatroom]()
             let chatroomRaw = snapshot.value as? [String:Any]
             
-            for (chatUniqueID, chat) in chatroomRaw {
+            for (chatUniqueID, chat) in chatroomRaw! {
                 let chatroomInfoRaw = chat as? [String:Any]
                 
                 guard
-                    let chatroomInfo = chatroomInfoInfoRaw as? [String:String],
+                    let chatroomInfo = chatroomInfoRaw as? [String:String],
                     let chatID = chatroomInfo["chatID"],
                     let lastMessage = chatroomInfo["lastMessage"],
                     let chatMessages = chatroomInfo["chatMessages"],
@@ -286,11 +286,11 @@ class FirebaseMethods {
                 let chatroom = Chatroom(chatID: chatID, timestamp: timestamp, lastMessage: lastMessage, partnerName: partnerName)
                 
                 chatRoomArray.append(chatroom)
-            
+                
             }
-        }
+            completion(chatRoomArray)
+        })
         
-        completion(chatRoomArray)
         
     }
     

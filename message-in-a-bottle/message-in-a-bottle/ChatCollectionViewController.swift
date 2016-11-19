@@ -13,7 +13,7 @@ private let reuseIdentifier = "chatCell"
 
 class ChatCollectionViewController: UICollectionViewController {
     
-    let chatRoomArray = [Chatroom]()
+    var chatRoomArray = [Chatroom]()
     
     
     override func viewDidLoad() {
@@ -23,14 +23,13 @@ class ChatCollectionViewController: UICollectionViewController {
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         
-        FirebaseMethods.retrieveChatRooms(for: FIRAuth.auth()?.currentUser.uid) { (chatrooms) in
-            let chatroomRaw = chatrooms.value as? [String: Any]
+        FirebaseMethods.retrieveChatRooms(for: (FIRAuth.auth()?.currentUser?.uid)!) { (chatrooms) in
             
-            for chatroom in chatroomRaw {
-                chatRoomArray.append(chatroom)
+            for chatroom in chatrooms {
+                self.chatRoomArray.append(chatroom)
             }
             
-            collectionView?.reloadData()
+            self.collectionView?.reloadData()
         }
         
     }
