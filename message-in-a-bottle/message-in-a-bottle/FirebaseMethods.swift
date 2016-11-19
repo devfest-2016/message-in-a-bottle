@@ -58,6 +58,24 @@ class FirebaseMethods {
         
     }
     
+    // MARK: - Pull all bottles for user
+    
+    static func retrieveBottlesForUser(uniqueID: String, completion: ([Message]) -> Void) {
+        let userRef = FIRDatabase.database().reference().child("users").child(uniqueID).child("bottles")
+        
+        userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            let messagesRaw = snapshot.value as? [String:Any]
+            
+            guard let messages = messagesRaw else { return }
+            
+            for (messageID, messageInfoRaw) in messages {
+                guard let messageInfo = messageInfoRaw as? [String:String] else { return }
+            }
+        })
+        
+        
+    }
+    
     
     // MARK: - Create chat room
     
