@@ -12,10 +12,10 @@ import UIKit
 struct IconFont {
     static let name = "FontAwesome"
     
-    static let sizeS = 12
-    static let sizeM = 24
-    static let sizeL = 36
-    static let sizeXL = 48
+    static let sizeS: CGFloat = 12
+    static let sizeM: CGFloat = 24
+    static let sizeL: CGFloat = 36
+    static let sizeXL: CGFloat = 48
 }
 
 struct Icons {
