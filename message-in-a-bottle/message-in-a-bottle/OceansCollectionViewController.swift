@@ -11,9 +11,11 @@ import UIKit
 
 class OceansCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    let backgroundImage = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
     }
 
     // MARK: UICollectionViewDataSource
@@ -21,10 +23,8 @@ class OceansCollectionViewController: UICollectionViewController, UICollectionVi
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
-
-    //TODO : -change number of items
     
+    //TODO : -change number of items
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return Ocean.oceanNames.count
     }
@@ -37,6 +37,8 @@ class OceansCollectionViewController: UICollectionViewController, UICollectionVi
         return cell
     }
 
+    
+    // MARK: - Collection View cell spacing
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 4.0
     }
@@ -53,5 +55,20 @@ class OceansCollectionViewController: UICollectionViewController, UICollectionVi
         return CGSize(width: (UIScreen.main.bounds.width - 12.0) / 2, height: (UIScreen.main.bounds.height - 16.0) / 3)
     }
 
+    
+    // MARK: - Setup view background
+    func setupView() {
+        // Add background
+        collectionView?.backgroundView = backgroundImage
+        backgroundImage.image = UIImage(named: "background")
+        backgroundImage.contentMode = .scaleAspectFill
+        backgroundImage.frame = self.view.frame
+        
+        // Add background blur
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = collectionView!.frame
+        backgroundImage.addSubview(blurEffectView)
+    }
     
 }

@@ -15,12 +15,9 @@ class OceanCollectionViewCell: UICollectionViewCell {
     var iconCircle = UILabel()
     
     func setupView(oceanName: String) {
-        // Background color
-//        self.backgroundColor = UIColor.lightGray
-        
-        // Label
+        // Text label
         let labelFont = UIFont(name: "Helvetica", size: 24)
-        let labelColor = UIColor.blue
+        let labelColor = UIColor.white
         
         self.contentView.addSubview(oceanLabel)
         oceanLabel.font = labelFont
@@ -34,8 +31,6 @@ class OceanCollectionViewCell: UICollectionViewCell {
         oceanLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2).isActive = true
         oceanLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
  
-
-    
         // Icon
         let iconFont = UIFont(name: IconFont.name, size: IconFont.sizeXL)
         let iconColor = labelColor
@@ -53,7 +48,7 @@ class OceanCollectionViewCell: UICollectionViewCell {
         oceanIcon.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive = true
         oceanIcon.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true
         
-        // Circle
+        // Circle around icon
         self.contentView.addSubview(iconCircle)
         iconCircle.text = Icons.circle
         iconCircle.font = UIFont(name: IconFont.name, size: 180)
