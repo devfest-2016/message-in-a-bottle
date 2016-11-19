@@ -17,6 +17,9 @@
 		B50B83211DE0A1FE0099A0AF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B83201DE0A1FE0099A0AF /* User.swift */; };
 		B50B83231DE0A22C0099A0AF /* Ocean.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B83221DE0A22C0099A0AF /* Ocean.swift */; };
 		B50B83251DE0A2430099A0AF /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B83241DE0A2430099A0AF /* Messages.swift */; };
+		B50B83271DE0D9D00099A0AF /* ChatCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B83261DE0D9D00099A0AF /* ChatCollectionViewController.swift */; };
+		B50B832C1DE0ECA10099A0AF /* ChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B832B1DE0ECA10099A0AF /* ChatCollectionViewCell.swift */; };
+		B50B832E1DE0F9D10099A0AF /* ChatroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B832D1DE0F9D10099A0AF /* ChatroomViewController.swift */; };
 		B5D2DDA71DE0A625001F2CCE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DDA61DE0A625001F2CCE /* LoginViewController.swift */; };
 		B5D2DDA91DE0A73F001F2CCE /* OceansCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DDA81DE0A73F001F2CCE /* OceansCollectionViewController.swift */; };
 		B5D2DDAB1DE0A9D5001F2CCE /* OceanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DDAA1DE0A9D5001F2CCE /* OceanCollectionViewCell.swift */; };
@@ -48,6 +51,9 @@
 		B50B83201DE0A1FE0099A0AF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B50B83221DE0A22C0099A0AF /* Ocean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ocean.swift; sourceTree = "<group>"; };
 		B50B83241DE0A2430099A0AF /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		B50B83261DE0D9D00099A0AF /* ChatCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCollectionViewController.swift; sourceTree = "<group>"; };
+		B50B832B1DE0ECA10099A0AF /* ChatCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCollectionViewCell.swift; sourceTree = "<group>"; };
+		B50B832D1DE0F9D10099A0AF /* ChatroomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatroomViewController.swift; sourceTree = "<group>"; };
 		B5D2DDA61DE0A625001F2CCE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B5D2DDA81DE0A73F001F2CCE /* OceansCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OceansCollectionViewController.swift; sourceTree = "<group>"; };
 		B5D2DDAA1DE0A9D5001F2CCE /* OceanCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OceanCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -122,6 +128,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B50B83281DE0D9D90099A0AF /* ChatVC */ = {
+			isa = PBXGroup;
+			children = (
+				B50B83261DE0D9D00099A0AF /* ChatCollectionViewController.swift */,
+				B50B832B1DE0ECA10099A0AF /* ChatCollectionViewCell.swift */,
+			);
+			name = ChatVC;
+			sourceTree = "<group>";
+		};
+		B50B832F1DE0F9D90099A0AF /* ChatroomVC */ = {
+			isa = PBXGroup;
+			children = (
+				B50B832D1DE0F9D10099A0AF /* ChatroomViewController.swift */,
+			);
+			name = ChatroomVC;
+			sourceTree = "<group>";
+		};
 		B5D2DDB01DE0AE43001F2CCE /* DataStructs */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +194,8 @@
 				E4365B921DE0A1CF006952D2 /* OceansVC */,
 				E446AE131DE09D4E0084A325 /* LandingViewController.swift */,
 				B5D2DDA61DE0A625001F2CCE /* LoginViewController.swift */,
+				B50B832F1DE0F9D90099A0AF /* ChatroomVC */,
+				B50B83281DE0D9D90099A0AF /* ChatVC */,
 				E48955771DE0D95E0006F996 /* Icons.swift */,
 			);
 			name = ViewControllers;
@@ -313,10 +338,13 @@
 			files = (
 				B50B83211DE0A1FE0099A0AF /* User.swift in Sources */,
 				B5D2DDB41DE0AEE2001F2CCE /* ChatMessage.swift in Sources */,
+				B50B832C1DE0ECA10099A0AF /* ChatCollectionViewCell.swift in Sources */,
 				B50B83251DE0A2430099A0AF /* Messages.swift in Sources */,
 				B50B83231DE0A22C0099A0AF /* Ocean.swift in Sources */,
+				B50B832E1DE0F9D10099A0AF /* ChatroomViewController.swift in Sources */,
 				B5D2DDA91DE0A73F001F2CCE /* OceansCollectionViewController.swift in Sources */,
 				B50B831D1DE0A19D0099A0AF /* FirebaseMethods.swift in Sources */,
+				B50B83271DE0D9D00099A0AF /* ChatCollectionViewController.swift in Sources */,
 				E446AE141DE09D4E0084A325 /* LandingViewController.swift in Sources */,
 				B5D2DDB21DE0AE9B001F2CCE /* Chatroom.swift in Sources */,
 				E4365B8E1DE0A025006952D2 /* BottlesAddMsgViewController.swift in Sources */,
