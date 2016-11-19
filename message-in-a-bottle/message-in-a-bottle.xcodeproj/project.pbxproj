@@ -81,15 +81,12 @@
 			children = (
 				E446AE121DE09C7B0084A325 /* ViewControllers */,
 				1B0BBE171DE0980E0018E274 /* AppDelegate.swift */,
-<<<<<<< HEAD
 				1B0BBE191DE0980E0018E274 /* ViewController.swift */,
 				B50B83201DE0A1FE0099A0AF /* User.swift */,
 				B50B83221DE0A22C0099A0AF /* Ocean.swift */,
 				B50B831C1DE0A19D0099A0AF /* FirebaseMethods.swift */,
 				B50B83241DE0A2430099A0AF /* Messages.swift */,
 				B50B831E1DE0A1EA0099A0AF /* GoogleService-Info.plist */,
-=======
->>>>>>> master
 				1B0BBE1B1DE0980E0018E274 /* Main.storyboard */,
 				1B0BBE1E1DE0980E0018E274 /* Assets.xcassets */,
 				1B0BBE201DE0980E0018E274 /* LaunchScreen.storyboard */,
@@ -268,19 +265,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				B50B83211DE0A1FE0099A0AF /* User.swift in Sources */,
 				B50B83251DE0A2430099A0AF /* Messages.swift in Sources */,
 				1B0BBE1A1DE0980E0018E274 /* ViewController.swift in Sources */,
 				B50B83231DE0A22C0099A0AF /* Ocean.swift in Sources */,
 				B50B831D1DE0A19D0099A0AF /* FirebaseMethods.swift in Sources */,
-=======
 				E446AE141DE09D4E0084A325 /* LandingViewController.swift in Sources */,
 				E4365B8E1DE0A025006952D2 /* BottlesAddMsgViewController.swift in Sources */,
 				E4365B901DE0A033006952D2 /* BottlesViewMsgViewController.swift in Sources */,
 				E4365B8C1DE0A002006952D2 /* BottlesViewOceansViewController.swift in Sources */,
 				E4365B8A1DE09F39006952D2 /* BottlesViewController.swift in Sources */,
->>>>>>> master
 				1B0BBE181DE0980E0018E274 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
