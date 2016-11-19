@@ -34,14 +34,17 @@ class Chatroom {
             completion()
         }
     }
-    func retrieveMessages(with completion: ()->Void) {
-        
+    func retrieveMessages(with completion: @escaping ()->Void) {
+        FirebaseMethods.retrieveChatMessages(chatID: chatID) { (chatMessages) in
+            self.chatMessages = chatMessages
+            completion()
+        }
     }
     
 }
 
 extension FirebaseMethods {
-    static func retrieveMessages(for chatID: String, completion: ([ChatMessage]) -> Void) {
+    static func retrieveChatMessages(chatID: String, completion: @escaping ([ChatMessage]) -> Void) {
         let messagesRef = FIRDatabase.database().reference().child("chatMessages").child(chatID)
         
         messagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -66,7 +69,7 @@ extension FirebaseMethods {
                 }
             }
             
-            
+            completion(messages)
         })
     }
 }
