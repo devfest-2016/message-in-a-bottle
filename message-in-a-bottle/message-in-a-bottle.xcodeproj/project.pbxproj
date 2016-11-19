@@ -12,6 +12,11 @@
 		1B0BBE1D1DE0980E0018E274 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B0BBE1B1DE0980E0018E274 /* Main.storyboard */; };
 		1B0BBE1F1DE0980E0018E274 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B0BBE1E1DE0980E0018E274 /* Assets.xcassets */; };
 		1B0BBE221DE0980E0018E274 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B0BBE201DE0980E0018E274 /* LaunchScreen.storyboard */; };
+		B50B831D1DE0A19D0099A0AF /* FirebaseMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B831C1DE0A19D0099A0AF /* FirebaseMethods.swift */; };
+		B50B831F1DE0A1EA0099A0AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B50B831E1DE0A1EA0099A0AF /* GoogleService-Info.plist */; };
+		B50B83211DE0A1FE0099A0AF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B83201DE0A1FE0099A0AF /* User.swift */; };
+		B50B83231DE0A22C0099A0AF /* Ocean.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B83221DE0A22C0099A0AF /* Ocean.swift */; };
+		B50B83251DE0A2430099A0AF /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B83241DE0A2430099A0AF /* Messages.swift */; };
 		F483EE138C22861AF2A554D5 /* Pods_message_in_a_bottle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B67EFF4C0C2B8B90627619E1 /* Pods_message_in_a_bottle.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +29,11 @@
 		1B0BBE211DE0980E0018E274 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B0BBE231DE0980E0018E274 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E7740879161FE6E5F218914 /* Pods-message-in-a-bottle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-message-in-a-bottle.release.xcconfig"; path = "Pods/Target Support Files/Pods-message-in-a-bottle/Pods-message-in-a-bottle.release.xcconfig"; sourceTree = "<group>"; };
+		B50B831C1DE0A19D0099A0AF /* FirebaseMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseMethods.swift; sourceTree = "<group>"; };
+		B50B831E1DE0A1EA0099A0AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B50B83201DE0A1FE0099A0AF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B50B83221DE0A22C0099A0AF /* Ocean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ocean.swift; sourceTree = "<group>"; };
+		B50B83241DE0A2430099A0AF /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		B67EFF4C0C2B8B90627619E1 /* Pods_message_in_a_bottle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_message_in_a_bottle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E063B8AA5300404125CA2557 /* Pods-message-in-a-bottle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-message-in-a-bottle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-message-in-a-bottle/Pods-message-in-a-bottle.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +73,11 @@
 			children = (
 				1B0BBE171DE0980E0018E274 /* AppDelegate.swift */,
 				1B0BBE191DE0980E0018E274 /* ViewController.swift */,
+				B50B83201DE0A1FE0099A0AF /* User.swift */,
+				B50B83221DE0A22C0099A0AF /* Ocean.swift */,
+				B50B831C1DE0A19D0099A0AF /* FirebaseMethods.swift */,
+				B50B83241DE0A2430099A0AF /* Messages.swift */,
+				B50B831E1DE0A1EA0099A0AF /* GoogleService-Info.plist */,
 				1B0BBE1B1DE0980E0018E274 /* Main.storyboard */,
 				1B0BBE1E1DE0980E0018E274 /* Assets.xcassets */,
 				1B0BBE201DE0980E0018E274 /* LaunchScreen.storyboard */,
@@ -152,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B0BBE221DE0980E0018E274 /* LaunchScreen.storyboard in Resources */,
+				B50B831F1DE0A1EA0099A0AF /* GoogleService-Info.plist in Resources */,
 				1B0BBE1F1DE0980E0018E274 /* Assets.xcassets in Resources */,
 				1B0BBE1D1DE0980E0018E274 /* Main.storyboard in Resources */,
 			);
@@ -212,7 +228,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B50B83211DE0A1FE0099A0AF /* User.swift in Sources */,
+				B50B83251DE0A2430099A0AF /* Messages.swift in Sources */,
 				1B0BBE1A1DE0980E0018E274 /* ViewController.swift in Sources */,
+				B50B83231DE0A22C0099A0AF /* Ocean.swift in Sources */,
+				B50B831D1DE0A19D0099A0AF /* FirebaseMethods.swift in Sources */,
 				1B0BBE181DE0980E0018E274 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
