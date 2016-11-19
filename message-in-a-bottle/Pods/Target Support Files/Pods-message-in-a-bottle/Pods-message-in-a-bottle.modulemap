@@ -1,0 +1,6 @@
+framework module Pods_message_in_a_bottle {
+  umbrella header "Pods-message-in-a-bottle-umbrella.h"
+
+  export *
+  module * { export * }
+}
