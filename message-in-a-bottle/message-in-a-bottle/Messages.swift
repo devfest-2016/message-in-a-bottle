@@ -8,17 +8,16 @@ class Message {
     var body: String
     var postedAt: Date
     var from: User
-    var ocean: Ocean
     var userUniqueKey: String
+    var timestamp: Double
     
-    init(title: String, body: String, postedAt: Date, from: User, ocean: Ocean, userUniqueKey: String) {
+    init(title: String, body: String, postedAt: Date, from: User, userUniqueKey: String, timestamp: Double) {
         self.title = title
         self.body = body
         self.postedAt = postedAt
         self.from = from
-        self.ocean = ocean
         self.userUniqueKey = userUniqueKey
-        
+        self.timestamp = timestamp
     }
     
 }

@@ -9,5 +9,9 @@
 import UIKit
 
 class BottleCollectionViewCell: UICollectionViewCell {
+ 
+    var bottleLabel = UILabel()
+    var bottleImage = UIImageView()
     
+
 }
