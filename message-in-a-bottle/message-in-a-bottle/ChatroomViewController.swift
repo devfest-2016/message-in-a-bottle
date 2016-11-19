@@ -10,17 +10,11 @@ import UIKit
 
 class ChatroomViewController: UIViewController {
     
-    
-    
     let tableView = UITableView()
     let textField = UITextField()
     
-    
-
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
+        super.viewDidLoad()git 
     }
 
     override func didReceiveMemoryWarning() {

@@ -15,10 +15,11 @@ struct IconFont {
     static let sizeS: CGFloat = 12
     static let sizeM: CGFloat = 24
     static let sizeL: CGFloat = 36
-    static let sizeXL: CGFloat = 48
+    static let sizeXL: CGFloat = 78 // DO NOT CHANGE
 }
 
 struct Icons {
+    // Oceans Categories
     static let hospitality = ""
     static let technology = ""
     static let music = ""
@@ -29,6 +30,9 @@ struct Icons {
     static let finance = ""
     static let govt = ""
     static let education = ""
+    
+    // Additional
+    static let circle = ""
     
     static func returnIcon(for string: String) -> String {
         switch string {
