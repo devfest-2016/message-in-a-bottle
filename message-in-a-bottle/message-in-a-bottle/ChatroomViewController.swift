@@ -14,7 +14,7 @@ class ChatroomViewController: UIViewController {
     let textField = UITextField()
     
     override func viewDidLoad() {
-        super.viewDidLoad()git 
+        super.viewDidLoad()
     }
 
     override func didReceiveMemoryWarning() {
