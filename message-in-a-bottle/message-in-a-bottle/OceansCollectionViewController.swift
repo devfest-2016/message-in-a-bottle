@@ -14,7 +14,7 @@ class OceansCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
      
     }
 
@@ -27,29 +27,23 @@ class OceansCollectionViewController: UICollectionViewController {
     }
 
 
+    //TODO : -change number of items
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return Ocean.oceanNames.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "oceansCell", for: indexPath) as! OceanCollectionViewCell
-    
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "oceanCell", for: indexPath) as! OceanCollectionViewCell
+      
+        cell.setupView(oceanName: Ocean.oceanNames[indexPath.row])
         
         return cell
     }
 
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if let dest = segue.destination as? OceanBottlesCollectionViewController {
-            
-            
-            
-            
-        }
-    }
+
     
 }
 
