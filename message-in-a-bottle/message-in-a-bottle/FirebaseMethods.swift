@@ -16,8 +16,6 @@ class FirebaseMethods {
                 print(error.localizedDescription)
                 
             }
-            guard let user = FIRAuth.auth()?.currentUser else { print("error"); return }
-            //            FIRAuth.auth()?.currentUser?.uid
         }
     }
     
@@ -53,8 +51,8 @@ class FirebaseMethods {
         let messageDictionary = ["uniqueKey": uniqueID, "title": title, "messageContent": messageContent, "timestamp": String(describing: Date().timeIntervalSince1970)]
         let messageID = ref.childByAutoId().key
         
-        ref.child("bottle").child(oceanID).setValue(messageDictionary, forKey: messageID)
-        ref.child("users").child(uniqueID).child("bottles").child(messageID).setValue("true")
+        ref.child("bottle").child(oceanID).child(oceanID).updateChildValues(messageDictionary)
+        ref.child("users").child(uniqueID).child("bottles").updateChildValues([messageID:oceanID])
         
     }
     
