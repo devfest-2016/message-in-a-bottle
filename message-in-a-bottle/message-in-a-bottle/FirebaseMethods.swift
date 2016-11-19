@@ -85,7 +85,7 @@ class FirebaseMethods {
         let ref = FIRDatabase.database().reference().root
         
         let messageID = ref.childByAutoId().key
-        ref.child("chatMessages").child(chatID).setValue(["senderName": sender.name, "messageContent": messageContent, "timestamp": Date().timeIntervalSince1970.description] , forKey: messageID)
+        ref.child("chatMessages").child(chatID).setValue(["senderName": sender.name, "senderUniqueKey": sender.uniqueKey, "messageContent": messageContent, "timestamp": Date().timeIntervalSince1970.description] , forKey: messageID)
         
     }
     

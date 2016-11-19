@@ -19,20 +19,20 @@ class Ocean {
         }
     }
     
-    
+    static let oceanNames = [
+    "Hospitality",
+    "Technology",
+    "Music",
+    "Media",
+    "Fasion",
+    "Graphic Design",
+    "Publishing",
+    "Finance",
+    "Government",
+    "Education",
+    ]
+
 }
 
 
-let oceanNames = [
-        "Hospitality",
-        "Technology",
-        "Music",
-        "Media",
-        "Fasion",
-        "Graphic Design",
-        "Publishing",
-        "Finance",
-        "Government",
-        "Education",
-    ]
 
