@@ -10,14 +10,10 @@ import UIKit
 
 class ChatroomViewController: UIViewController {
     
-    
-    
     let tableView = UITableView()
     let textField = UITextField()
     let sendButton = UIButton()
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,7 +47,7 @@ class ChatroomViewController: UIViewController {
                 sendButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
                 sendButton.leftAnchor.constraint(equalTo: textField.rightAnchor).isActive = true
                 sendButton.topAnchor.constraint(equalTo: tableView.bottomAnchor).isActive = true
-        
+
     }
 
     override func didReceiveMemoryWarning() {
