@@ -217,10 +217,10 @@
             </objects>
             <point key="canvasLocation" x="1069.5999999999999" y="1610.6446776611695"/>
         </scene>
-        <!--View Controller-->
+        <!--Chatroom View Controller-->
         <scene sceneID="GCm-RE-LZy">
             <objects>
-                <viewController id="eAz-kW-wXr" sceneMemberID="viewController">
+                <viewController id="eAz-kW-wXr" customClass="ChatroomViewController" customModule="message_in_a_bottle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RlG-hD-ane"/>
                         <viewControllerLayoutGuide type="bottom" id="Dx6-wn-hx1"/>

@@ -224,11 +224,11 @@ class FirebaseMethods {
     }
     
     
-    static func retrieveChatMessages(for user: User, chatID: String, with completion: @escaping ([ChatMessage]) -> Void) {
-        let chatRef = FIRDatabase.database().reference().child("users").child(user.uniqueKey).child("chats").child(chatID)
+    static func retrieveChatMessages(for userID: String, chatID: String, with completion: @escaping ([ChatMessage]) -> Void) {
+        let chatRef = FIRDatabase.database().reference().child("users").child(userID).child("chats").child(chatID)
         
         chatRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            let chatInfoRaw = snapshot.value as? [String:Any]
+            guard let chatInfoRaw = snapshot.value as? [String:Any] else {return}
             var chatMessages = [ChatMessage]()
             
             for (chatMessageUniqueID, chatMessage) in chatInfoRaw {
@@ -253,18 +253,18 @@ class FirebaseMethods {
     }
 
     
-    static func retrieveChatRooms(for user: User, with completion: ([Chatroom]) -> Void) {
-        let chatRef = FIRDatabase.database().reference().child("users").child(user.uniqueKey)
+    static func retrieveChatRooms(for userID: String, with completion: @escaping ([Chatroom]) -> Void) {
+        let chatRef = FIRDatabase.database().reference().child("users").child(userID)
         
-        chatRef.observeSingleEvent(of: .value) { (snapshot) in
-            let chatRoomArray = [Chatroom]()
-            let chatroomRaw = snapshot.value as? [String:Any]
+        chatRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            var chatRoomArray = [Chatroom]()
+            guard let chatroomRaw = snapshot.value as? [String:Any] else {return}
             
             for (chatUniqueID, chat) in chatroomRaw {
                 let chatroomInfoRaw = chat as? [String:Any]
                 
                 guard
-                    let chatroomInfo = chatroomInfoInfoRaw as? [String:String],
+                    let chatroomInfo = chatroomRaw as? [String:String],
                     let chatID = chatroomInfo["chatID"],
                     let lastMessage = chatroomInfo["lastMessage"],
                     let chatMessages = chatroomInfo["chatMessages"],
@@ -277,11 +277,12 @@ class FirebaseMethods {
                 let chatroom = Chatroom(chatID: chatID, timestamp: timestamp, lastMessage: lastMessage, partnerName: partnerName)
                 
                 chatRoomArray.append(chatroom)
-            
+                
             }
-        }
+            completion(chatRoomArray)
+        })
         
-        completion(chatRoomArray)
+        
         
     }
     

@@ -66,7 +66,6 @@ class LoginViewController: UIViewController {
 
 }
 
-class 
 
 
 
