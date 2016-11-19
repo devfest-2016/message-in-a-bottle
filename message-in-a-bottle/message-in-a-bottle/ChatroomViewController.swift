@@ -15,7 +15,6 @@ class ChatroomViewController: UIViewController {
     let sendButton = UIButton()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
             //TableView
         
