@@ -168,7 +168,6 @@
         <scene sceneID="puz-kH-Cno">
             <objects>
                 <collectionViewController id="hT6-Wx-PQy" customClass="ChatCollectionViewController" customModule="message_in_a_bottle" customModuleProvider="target" sceneMemberID="viewController">
-                <collectionViewController id="hT6-Wx-PQy" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="bc7-Tg-iET">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
