@@ -19,15 +19,19 @@ class ChatCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("CHAT COLLECTION VIEW")
         
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         
         FirebaseMethods.retrieveChatRooms(for: (FIRAuth.auth()?.currentUser!.uid)!) { (chatrooms) in
+            print("CHATROOMS: \(chatrooms)")
+            
             for chatroom in chatrooms {
+                print("CHATROOM: \(chatroom)")
                 self.chatRoomArray.append(chatroom)
             }
-            
+            print("CHATROOM ARRAY COUNT: \(self.chatRoomArray.count)\n\n\n\n")
             self.collectionView?.reloadData()
         }
         
