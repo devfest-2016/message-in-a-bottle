@@ -29,7 +29,7 @@
 		E4365B901DE0A033006952D2 /* BottlesViewMsgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4365B8F1DE0A033006952D2 /* BottlesViewMsgViewController.swift */; };
 		E446AE141DE09D4E0084A325 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E446AE131DE09D4E0084A325 /* LandingViewController.swift */; };
 		E48955781DE0D95E0006F996 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48955771DE0D95E0006F996 /* Icons.swift */; };
-		E489557B1DE0D9D50006F996 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = E489557A1DE0D9D50006F996 /* FontAwesome.otf */; };
+		E489557D1DE0DD5F0006F996 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = E489557C1DE0DD5F0006F996 /* FontAwesome.otf */; };
 		F483EE138C22861AF2A554D5 /* Pods_message_in_a_bottle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B67EFF4C0C2B8B90627619E1 /* Pods_message_in_a_bottle.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +61,7 @@
 		E4365B8F1DE0A033006952D2 /* BottlesViewMsgViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottlesViewMsgViewController.swift; sourceTree = "<group>"; };
 		E446AE131DE09D4E0084A325 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		E48955771DE0D95E0006F996 /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
-		E489557A1DE0D9D50006F996 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = "../../../../../../../Downloads/font-awesome-4.7.0/fonts/FontAwesome.otf"; sourceTree = "<group>"; };
+		E489557C1DE0DD5F0006F996 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,8 +176,8 @@
 		E48955791DE0D9B40006F996 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E489557C1DE0DD5F0006F996 /* FontAwesome.otf */,
 				1B0BBE1E1DE0980E0018E274 /* Assets.xcassets */,
-				E489557A1DE0D9D50006F996 /* FontAwesome.otf */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -246,7 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B0BBE221DE0980E0018E274 /* LaunchScreen.storyboard in Resources */,
-				E489557B1DE0D9D50006F996 /* FontAwesome.otf in Resources */,
+				E489557D1DE0DD5F0006F996 /* FontAwesome.otf in Resources */,
 				B50B831F1DE0A1EA0099A0AF /* GoogleService-Info.plist in Resources */,
 				1B0BBE1F1DE0980E0018E274 /* Assets.xcassets in Resources */,
 				1B0BBE1D1DE0980E0018E274 /* Main.storyboard in Resources */,
