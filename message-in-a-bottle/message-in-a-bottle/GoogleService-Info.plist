@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>122980002564-dcnllf1f3gk3kel2r6a6uhv8966vu5jr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.122980002564-dcnllf1f3gk3kel2r6a6uhv8966vu5jr</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBpLfU7zMIGOAFjBtSm8ibOelycFNLQV5o</string>
+	<key>GCM_SENDER_ID</key>
+	<string>122980002564</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.flatiron.message-in-a-bottle</string>
+	<key>PROJECT_ID</key>
+	<string>message-in-a-bottle-ac6c4</string>
+	<key>STORAGE_BUCKET</key>
+	<string>message-in-a-bottle-ac6c4.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:122980002564:ios:94787aa1ad405bf1</string>
+	<key>DATABASE_URL</key>
+	<string>https://message-in-a-bottle-ac6c4.firebaseio.com</string>
+</dict>
+</plist>
