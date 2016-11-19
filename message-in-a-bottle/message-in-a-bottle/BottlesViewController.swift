@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 private let reuseIdentifier = "Cell"
 
@@ -24,14 +25,22 @@ class BottlesViewController: UICollectionViewController {
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "bottleCell")
 
         // Do any additional setup after loading the view.
+        
+        retrieveBottleMessages()
     }
     
     func retrieveBottleMessages() {
-        guard let uniqueID = currentUser?.uniqueKey else { return }
+        
+        print("PROGRESS: Retreiving Bottle Messages...")
+        guard let uniqueID = FIRAuth.auth()?.currentUser?.uid else { return }
         
         FirebaseMethods.retrieveBottlesForUser(uniqueID: uniqueID) { (messages) in
+            print("PROGRESS: Ran the Retrieve Bottle Messages Firebase method...")
+            
+            print("PROGRESS: Retreived \(messages.count) messages...")
             self.bottles = messages
             self.collectionView!.reloadData()
+            print("SUCCESS: Done!")
         }
     }
     

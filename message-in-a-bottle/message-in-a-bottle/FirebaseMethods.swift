@@ -61,16 +61,25 @@ class FirebaseMethods {
     // MARK: - Pull all bottles for user
     
     static func retrieveBottlesForUser(uniqueID: String, completion: @escaping ([Message]) -> Void) {
-        let userRef = FIRDatabase.database().reference().child("users").child(uniqueID).child("bottles")
+        let userRef = FIRDatabase.database().reference().child("users").child(uniqueID)
+        
+        print("PROGRESS: In the firebase method")
+        print(userRef)
         
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            print("PROGRESS: Observing event")
+            dump(snapshot)
+            print(snapshot.value)
             var userMessages = [Message]()
             
-            let messagesRaw = snapshot.value as? [String:Any]
+            guard let messagesRaw = snapshot.value else { print("snapshot.value has no value"); return }
             
-            guard let messages = messagesRaw else { return }
+            print("messagesRaw: \(messagesRaw)")
+            
+            guard let messages = messagesRaw as? [String:Any] else { print("FAILURE: messagesRaw cannot be converted to messages"); return }
             
             for (messageID, messageInfoRaw) in messages {
+                print("")
                 guard let messageInfo = messageInfoRaw as? [String:String] else { return }
                 
                 guard
@@ -79,7 +88,7 @@ class FirebaseMethods {
                     let timestampString = messageInfo["timestamp"],
                     let timestamp = Double(timestampString),
                     let userUniqueKey = messageInfo["uniqueKey"]
-                    else { return }
+                    else { print("FAILURE: Cannot cast "); return }
                 
                 let message = Message(messageUniqueID: messageID, title: title, body: body, userUniqueKey: userUniqueKey, timestamp: timestamp)
                 userMessages.append(message)
