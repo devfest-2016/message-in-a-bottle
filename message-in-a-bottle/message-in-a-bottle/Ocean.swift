@@ -22,3 +22,17 @@ class Ocean {
     
 }
 
+
+let oceanNames = [
+        "Hospitality",
+        "Technology",
+        "Music",
+        "Media",
+        "Fasion",
+        "Graphic Design",
+        "Publishing",
+        "Finance",
+        "Government",
+        "Education",
+    ]
+

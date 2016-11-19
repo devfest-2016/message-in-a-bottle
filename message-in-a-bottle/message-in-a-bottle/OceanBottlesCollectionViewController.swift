@@ -1,24 +1,27 @@
 //
-//  OceansCollectionViewController.swift
-//  message-in-a-bottle
+//  OceanBottlesCollectionViewController.swift
+//  
 //
 //  Created by Benjamin Su on 11/19/16.
-//  Copyright © 2016 Flatiron School. All rights reserved.
+//
 //
 
 import UIKit
 
 
-class OceansCollectionViewController: UICollectionViewController {
 
+class OceanBottlesCollectionViewController: UICollectionViewController {
+
+    var ocean: Ocean!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-     
+
     }
 
-
+ 
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -29,43 +32,17 @@ class OceansCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return oceanNames.count
+        return ocean.messages.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "oceansCell", for: indexPath) as! OceanCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bottleCell", for: indexPath) as! BottleCollectionViewCell
     
-        
-        
+        cell.bottleLabel.text = "ello World"
+    
         return cell
     }
 
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if let dest = segue.destination as? OceanBottlesCollectionViewController {
-            
-            
-            
-            
-        }
-    }
-    
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

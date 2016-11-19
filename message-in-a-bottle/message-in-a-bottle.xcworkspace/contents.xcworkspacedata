@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:OceanBottlesCollectionViewController.swift">
-   </FileRef>
-   <FileRef
       location = "group:message-in-a-bottle.xcodeproj">
    </FileRef>
    <FileRef
