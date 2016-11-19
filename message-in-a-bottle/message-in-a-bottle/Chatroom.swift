@@ -19,6 +19,7 @@ class Chatroom {
     
     var chatMessages = [ChatMessage]()
     var partner: User?
+    var title: String?
     
     init(chatID: String, timestamp: Double, lastMessage: String, partnerName: String) {
         self.chatID = chatID
@@ -26,6 +27,7 @@ class Chatroom {
         self.timestamp = timestamp
         self.dateSent = Date(timeIntervalSince1970: timestamp)
         self.partnerName = partnerName
+        self.title = "Chat with \(partnerName)"
     }
     
     func retrievePartner(with completion: @escaping ()->Void) {
