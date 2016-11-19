@@ -23,8 +23,7 @@ class ChatCollectionViewController: UICollectionViewController {
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         
-        FirebaseMethods.retrieveChatRooms(for: (FIRAuth.auth()?.currentUser?.uid)!) { (chatrooms) in
-            
+        FirebaseMethods.retrieveChatRooms(for: (FIRAuth.auth()?.currentUser!.uid)!) { (chatrooms) in
             for chatroom in chatrooms {
                 self.chatRoomArray.append(chatroom)
             }
