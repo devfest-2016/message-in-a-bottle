@@ -10,6 +10,10 @@ import UIKit
 
 class BottlesViewMsgViewController: UIViewController {
 
+    @IBOutlet weak var messageTextField: UITextView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,5 +35,11 @@ class BottlesViewMsgViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func backButtonAction(_ sender: UIButton) {
+    }
+    
+    
+    
 
 }

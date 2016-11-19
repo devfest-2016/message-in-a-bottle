@@ -140,7 +140,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="eeh-fw-agp">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="oceanCell" id="eeh-fw-agp" customClass="OceanCollectionViewCell" customModule="message_in_a_bottle" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="165" height="139"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -234,7 +234,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6E5-s0-eg3">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6E5-s0-eg3" customClass="BottleCollectionViewCell" customModule="message_in_a_bottle" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="141" height="124"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -298,26 +298,26 @@
         <scene sceneID="cua-Tn-5Bf">
             <objects>
                 <collectionViewController id="Wcl-eH-t3y" customClass="BottlesViewController" customModule="message_in_a_bottle" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="F2y-wO-myL">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="F2y-wO-myL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TZs-RU-Yt2">
-                            <size key="itemSize" width="110" height="138"/>
+                            <size key="itemSize" width="142" height="127"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bCb-CN-U6n">
-                                <rect key="frame" x="0.0" y="0.0" width="110" height="138"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="bottleCell" id="bCb-CN-U6n" customClass="BottleCollectionViewCell" customModule="message_in_a_bottle" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="142" height="127"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="110" height="138"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="142" height="127"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
                                 <connections>
-                                    <segue destination="aR0-uq-cZT" kind="presentation" id="mah-Sx-eiP"/>
+                                    <segue destination="aR0-uq-cZT" kind="presentation" identifier="showViewMessages" id="mah-Sx-eiP"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -329,7 +329,7 @@
                     <navigationItem key="navigationItem" title="Your Bottles" id="rzD-Yu-bnc">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="g6q-m2-CRi">
                             <connections>
-                                <segue destination="rLU-1g-08E" kind="show" id="xm5-v7-XSg"/>
+                                <segue destination="rLU-1g-08E" kind="show" identifier="showOceansSegue" id="xm5-v7-XSg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -351,15 +351,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qbQ-mo-tgg">
-                                <rect key="frame" x="67" y="140" width="227" height="267"/>
+                                <rect key="frame" x="74" y="58" width="227" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.51500148227808373" green="1" blue="0.49831910661380963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bf-S3-K7f">
+                                <rect key="frame" x="140" y="398" width="95" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="backButtonAction:" destination="aR0-uq-cZT" eventType="touchUpInside" id="Tb9-YS-9cU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="messageTextField" destination="qbQ-mo-tgg" id="UYF-cm-j8L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yla-kv-Y9R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -369,7 +380,7 @@
         <scene sceneID="1cy-Dl-jcN">
             <objects>
                 <collectionViewController id="rLU-1g-08E" customClass="BottlesViewOceansViewController" customModule="message_in_a_bottle" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Flj-Yz-aIX">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Flj-Yz-aIX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -380,7 +391,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="trs-Tc-ZpD">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="oceanCell" id="trs-Tc-ZpD" customClass="OceanCollectionViewCell" customModule="message_in_a_bottle" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="131" height="129"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -388,7 +399,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
                                 <connections>
-                                    <segue destination="Xyk-za-7e6" kind="presentation" id="T2N-AT-JfD"/>
+                                    <segue destination="Xyk-za-7e6" kind="presentation" identifier="showWriteMessages" id="T2N-AT-JfD"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -416,19 +427,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cKf-dy-RZN">
-                                <rect key="frame" x="67" y="137" width="240" height="128"/>
+                                <rect key="frame" x="67" y="137" width="240" height="174"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.66596123530886242" green="1" blue="0.51321570867796806" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHH-II-zlj">
+                                <rect key="frame" x="126" y="362" width="91" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="sendButtonAction:" destination="Xyk-za-7e6" eventType="touchUpInside" id="4y7-Sq-Cx2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moP-f4-mCY">
+                                <rect key="frame" x="141" y="449" width="92" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="backButtonAction:" destination="Xyk-za-7e6" eventType="touchUpInside" id="eLu-Rw-glI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="messageTextField" destination="cKf-dy-RZN" id="s69-Dm-rS1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjv-iT-6N4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3596" y="-73"/>
+            <point key="canvasLocation" x="3596" y="-73.313343328335833"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="x2d-lq-cqN">

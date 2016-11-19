@@ -10,6 +10,7 @@ import UIKit
 
 class BottlesAddMsgViewController: UIViewController {
 
+    @IBOutlet weak var messageTextField: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,4 +33,11 @@ class BottlesAddMsgViewController: UIViewController {
     }
     */
 
+    @IBAction func sendButtonAction(_ sender: UIButton) {
+    }
+    
+    @IBAction func backButtonAction(_ sender: UIButton) {
+    }
+    
+    
 }
