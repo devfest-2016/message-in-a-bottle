@@ -66,14 +66,17 @@ class FirebaseMethods {
         let ref = FIRDatabase.database().reference().root
         
         let chatID = ref.childByAutoId().key
-        let title = "Chat with \(userOne.name) and \(userTwo.name)"
         
         
-        ref.child("users").child(userOne.uniqueKey).child("chats").setValue(userTwo.uniqueKey, forKey: chatID)
+        let userOneDictionary = ["recipientUniqueID": userTwo.uniqueKey, "recipientName": userTwo.name]
+        let userTwoDictionary = ["recipientUniqueID": userOne.uniqueKey, "recipientName": userOne.name]
         
-        ref.child("users").child(userTwo.uniqueKey).child("chats").setValue(userOne.uniqueKey, forKey: chatID)
+        ref.child("users").child(userOne.uniqueKey).child("chats").setValue(userOneDictionary, forKey: chatID)
         
-        ref.child("chats").setValue(["title": title, "timestamp": String(describing: Date().timeIntervalSince1970)], forKey: chatID)
+        ref.child("users").child(userTwo.uniqueKey).child("chats").setValue(userTwoDictionary, forKey: chatID)
+        
+        ref.child("chats").setValue(["previousMessage": "Be the first to start a conversation!", "timestamp": String(describing: Date().timeIntervalSince1970)], forKey: chatID)
+        
         
         ref.setValue(chatID, forKey: "chatMessages")
         
@@ -83,9 +86,12 @@ class FirebaseMethods {
     static func sendMessage(sender: User, messageContent: String, chatID: String) {
         
         let ref = FIRDatabase.database().reference().root
+        let timeStamp = Date().timeIntervalSince1970.description
         
         let messageID = ref.childByAutoId().key
-        ref.child("chatMessages").child(chatID).setValue(["senderName": sender.name, "messageContent": messageContent, "timestamp": Date().timeIntervalSince1970.description] , forKey: messageID)
+        ref.child("chatMessages").child(chatID).setValue(["senderName": sender.name, "messageContent": messageContent, "timestamp": timeStamp] , forKey: messageID)
+        
+        ref.child("chats").setValue(["previousMessage": messageContent, "timestamp": timeStamp], forKey: chatID)
         
     }
     
@@ -96,18 +102,22 @@ class FirebaseMethods {
         
         
         let ref = FIRDatabase.database().reference().root
-        let user = FIRAuth.auth()?.currentUser?.uid
+        let currentUser = FIRAuth.auth()?.currentUser?.uid
         
-        ref.child("users").child(user!).child("chats").observeSingleEvent(of: .value, with: { snapshot in
+        
+        ref.child("users").child(currentUser!).child("chats").observeSingleEvent(of: .value, with: { snapshot in
             
             if let chatSnapshot = snapshot.value as? [String: Any] {
                 for item in chatSnapshot {
                     
                     if item.key == chatID {
                         
-                        ref.child("users").child(user!).child("chats").removeValue()
+                        ref.child("users").child(currentUser!).child("chats").removeValue()
                         ref.child("chats").child(chatID).removeValue()
                         ref.child("chatMessages").child(chatID).child(messageID).removeValue()
+                        
+                        guard let secondUserUniqueKey = item.value as? String else {return}
+                        ref.child("users").child(secondUserUniqueKey).child("chats").removeValue()
                         
                     }
                 }
@@ -139,8 +149,7 @@ class FirebaseMethods {
                     let timestampString = messageInfo["title"],
                     let timestamp = Double(timestampString)
                     else { return }
-                
-                
+
                 
                 let message = Message(messageUniqueID: messageUniqueID, title: title, body: body, userUniqueKey: userUniqueKey, timestamp: timestamp)
                 messages.append(message)
