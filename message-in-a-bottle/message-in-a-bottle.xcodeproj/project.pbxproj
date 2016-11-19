@@ -93,7 +93,6 @@
 			children = (
 				E446AE121DE09C7B0084A325 /* ViewControllers */,
 				1B0BBE171DE0980E0018E274 /* AppDelegate.swift */,
-				B50B83201DE0A1FE0099A0AF /* User.swift */,
 				B5D2DDB01DE0AE43001F2CCE /* DataStructs */,
 				B50B831C1DE0A19D0099A0AF /* FirebaseMethods.swift */,
 				B50B831E1DE0A1EA0099A0AF /* GoogleService-Info.plist */,
@@ -117,6 +116,7 @@
 		B5D2DDB01DE0AE43001F2CCE /* DataStructs */ = {
 			isa = PBXGroup;
 			children = (
+				B50B83201DE0A1FE0099A0AF /* User.swift */,
 				B50B83221DE0A22C0099A0AF /* Ocean.swift */,
 				B50B83241DE0A2430099A0AF /* Messages.swift */,
 				B5D2DDB11DE0AE9B001F2CCE /* Chatroom.swift */,
