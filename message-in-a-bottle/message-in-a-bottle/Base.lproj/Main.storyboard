@@ -129,8 +129,8 @@
         <!--View Oceans-->
         <scene sceneID="rhh-ui-LFM">
             <objects>
-                <collectionViewController id="PbM-NI-jrb" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="7Hc-FG-Ejk">
+                <collectionViewController id="PbM-NI-jrb" customClass="OceansCollectionViewController" customModule="message_in_a_bottle" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="7Hc-FG-Ejk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -167,7 +167,11 @@
         <!--Chats-->
         <scene sceneID="puz-kH-Cno">
             <objects>
+<<<<<<< HEAD
                 <collectionViewController id="hT6-Wx-PQy" customClass="ChatCollectionViewController" customModule="message_in_a_bottle" customModuleProvider="target" sceneMemberID="viewController">
+=======
+                <collectionViewController id="hT6-Wx-PQy" sceneMemberID="viewController">
+>>>>>>> 251d6261395f49e64c65669390d09b53c187f491
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="bc7-Tg-iET">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -238,8 +242,8 @@
         <!--Bottles In Ocean-->
         <scene sceneID="e8P-He-zgh">
             <objects>
-                <collectionViewController id="NXo-hP-42I" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="wVV-gj-Hn1">
+                <collectionViewController id="NXo-hP-42I" customClass="OceanBottlesCollectionViewController" customModule="message_in_a_bottle" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="wVV-gj-Hn1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -314,7 +318,7 @@
         <scene sceneID="cua-Tn-5Bf">
             <objects>
                 <collectionViewController id="Wcl-eH-t3y" customClass="BottlesViewController" customModule="message_in_a_bottle" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="F2y-wO-myL">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="F2y-wO-myL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -396,7 +400,7 @@
         <scene sceneID="1cy-Dl-jcN">
             <objects>
                 <collectionViewController id="rLU-1g-08E" customClass="BottlesViewOceansViewController" customModule="message_in_a_bottle" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Flj-Yz-aIX">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Flj-Yz-aIX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

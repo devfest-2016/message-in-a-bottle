@@ -32,7 +32,7 @@ class Ocean {
     "Technology",
     "Music",
     "Media",
-    "Fasion",
+    "Fashion",
     "Graphic Design",
     "Publishing",
     "Finance",
