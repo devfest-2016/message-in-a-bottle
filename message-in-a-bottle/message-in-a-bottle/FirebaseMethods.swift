@@ -89,9 +89,11 @@ class FirebaseMethods {
         let timeStamp = Date().timeIntervalSince1970.description
         
         let messageID = ref.childByAutoId().key
-        ref.child("chatMessages").child(chatID).setValue(["senderName": sender.name, "messageContent": messageContent, "timestamp": timeStamp] , forKey: messageID)
         
         ref.child("chats").setValue(["previousMessage": messageContent, "timestamp": timeStamp], forKey: chatID)
+
+        ref.child("chatMessages").child(chatID).setValue(["senderName": sender.name, "senderUniqueKey": sender.uniqueKey, "messageContent": messageContent, "timestamp": timeStamp] , forKey: messageID)
+
         
     }
     

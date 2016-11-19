@@ -10,16 +10,18 @@ import Foundation
 
 class ChatMessage {
     
-    var msgID: String
-    var nameOfSender: String
+    var messageID: String
+    var senderUniqueKey: String
     var content: String
     var timestamp: Double
+    var dateSent: Date
     
-    init(msgID: String, name: String, content: String, timestamp: Double) {
-        self.msgID = msgID
-        self.nameOfSender = name
+    init(senderName: String, messageID: String, senderUniqueKey: String, content: String, timestamp: Double) {
+        self.messageID = messageID
+        self.senderUniqueKey = senderUniqueKey
         self.content = content
         self.timestamp = timestamp
+        self.dateSent = Date(timeIntervalSince1970: timestamp)
     }
     
 }

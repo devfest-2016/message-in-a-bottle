@@ -45,3 +45,5 @@ class User {
     }
     
 }
+
+var currentUser: User?
