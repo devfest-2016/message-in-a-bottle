@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class OceanBottlesCollectionViewController: UICollectionViewController {
+class OceanBottlesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     var ocean: Ocean!
     var bottles = [Message]()
@@ -57,6 +57,28 @@ class OceanBottlesCollectionViewController: UICollectionViewController {
         return cell
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? OceanBottleViewMsgsViewController,
+            let index = collectionView?.indexPathsForSelectedItems?[0] {
+            dest.message = bottles[index.row]
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 4.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 4.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (UIScreen.main.bounds.width - 12.0) / 2, height: (UIScreen.main.bounds.height - 16.0) / 3)
+    }
 
 
 }
