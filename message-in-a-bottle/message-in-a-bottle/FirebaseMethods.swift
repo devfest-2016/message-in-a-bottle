@@ -51,7 +51,7 @@ class FirebaseMethods {
         let messageDictionary = ["uniqueKey": uniqueID, "title": title, "messageContent": messageContent, "timestamp": String(describing: Date().timeIntervalSince1970)]
         let messageID = ref.childByAutoId().key
         
-        ref.child("bottle").child(oceanID).child(oceanID).updateChildValues(messageDictionary)
+        ref.child("bottle").child(oceanID).updateChildValues(messageDictionary)
         ref.child("users").child(uniqueID).child("bottles").updateChildValues([messageID:oceanID])
         
     }
@@ -63,6 +63,8 @@ class FirebaseMethods {
         
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in
             var userMessages = [Message]()
+            
+            print("PROGRESS: retrieving from \(userRef)")
             
             guard let messagesRaw = snapshot.value else { print("FAILURE: snapshot.value has no value"); return }
             
