@@ -9,6 +9,8 @@
 import UIKit
 import FirebaseAuth
 class BottlesAddMsgViewController: UIViewController {
+    
+    @IBOutlet weak var titleTextField: UITextField!
 
     @IBOutlet weak var messageTextField: UITextView!
     
@@ -16,8 +18,7 @@ class BottlesAddMsgViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(oceanName)
-        // Do any additional setup after loading the view.
+        
     }
 
 

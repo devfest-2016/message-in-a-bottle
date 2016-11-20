@@ -48,9 +48,11 @@ class OceanBottlesCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bottleCell", for: indexPath) as! BottleCollectionViewCell
     
+        cell.backgroundColor = UIColor.cyan
         cell.loadViews()
-        
-        cell.bottleLabel.text = "ello World"
+        cell.bgImageView.image = UIImage(named: "bgwave")
+        cell.fgImageView.image = UIImage(named: "fgwave")
+        cell.bottleImageView.image = UIImage(named: "bottle")
         
         return cell
     }
