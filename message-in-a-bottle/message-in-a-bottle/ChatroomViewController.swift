@@ -23,7 +23,7 @@ class ChatroomViewController: UIViewController {
         
                 self.view.addSubview(tableView)
                 tableView.translatesAutoresizingMaskIntoConstraints = false
-//                tableView.bottomAnchor.constraint(equalTo: textField.topAnchor).isActive = true
+                tableView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.95).isActive = true
                 tableView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1.0).isActive = true
                 tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
                 tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -34,8 +34,8 @@ class ChatroomViewController: UIViewController {
                 self.view.addSubview(textField)
                 textField.translatesAutoresizingMaskIntoConstraints = false
                 textField.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
+                textField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.70).isActive = true
                 textField.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-                textField.rightAnchor.constraint(equalTo: sendButton.leftAnchor).isActive = true
                 textField.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
             //Send message button
@@ -44,11 +44,12 @@ class ChatroomViewController: UIViewController {
                 sendButton.layer.borderWidth = 2.0
                 sendButton.layer.borderColor = UIColor.black.cgColor
                 sendButton.titleLabel?.text = "Send"
+                sendButton.titleLabel?.textColor = UIColor.blue
                 sendButton.translatesAutoresizingMaskIntoConstraints = false
-                sendButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
+                sendButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.05).isActive = true
                 sendButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-                sendButton.leftAnchor.constraint(equalTo: textField.rightAnchor).isActive = true
-//                sendButton.topAnchor.constraint(equalTo: tableView.bottomAnchor).isActive = true
+                sendButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.30).isActive = true
+                sendButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
 
         super.viewDidLoad()
