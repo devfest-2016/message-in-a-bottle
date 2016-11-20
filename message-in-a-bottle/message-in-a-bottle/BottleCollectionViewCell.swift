@@ -23,12 +23,16 @@ class BottleCollectionViewCell: UICollectionViewCell {
         }
         
         bottleLabel = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: frame.size.width, height: frame.size.height * 0.25))
+        bottleLabel.textAlignment = .center
         self.contentView.addSubview(bottleLabel)
         bgImageView = UIImageView(frame: CGRect(x: frame.size.width * -0.1, y: frame.size.height * 0.3, width: frame.size.width * 1.2, height: frame.size.height * 0.8))
+        bgImageView.image = UIImage(named: "wave")
         self.contentView.addSubview(bgImageView)
-        bottleImageView = UIImageView(frame: CGRect(x: frame.size.width * 0.425, y: frame.size.height * 0.5, width: frame.size.width * 0.15, height: frame.size.width * 0.5))
+        bottleImageView = UIImageView(frame: CGRect(x: frame.size.width * 0.425, y: frame.size.height * 0.6, width: frame.size.width * 0.15, height: frame.size.width * 0.5))
+        bottleImageView.image = UIImage(named: "bottle")
         self.contentView.addSubview(bottleImageView)
         fgImageView = UIImageView(frame: CGRect(x: frame.size.width * -0.15, y: frame.size.height * 0.6, width: frame.size.width * 1.3, height: frame.size.height * 0.5))
+        fgImageView.image = UIImage(named: "wave")
         self.contentView.addSubview(fgImageView)
         
         animateForeground()
