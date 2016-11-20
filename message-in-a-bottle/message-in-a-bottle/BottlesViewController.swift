@@ -27,19 +27,13 @@ class BottlesViewController: UICollectionViewController, UICollectionViewDelegat
     
     func retrieveBottleMessages() {
         
-        print("PROGRESS: Retreiving Bottle Messages...")
         guard let uniqueID = FIRAuth.auth()?.currentUser?.uid else { return }
         
         FirebaseMethods.retrieveBottlesForUser(uniqueID: uniqueID) { (messages) in
-            print("PROGRESS: Ran the Retrieve Bottle Messages Firebase method...")
             
-            print("PROGRESS: Retreived \(messages.count) messages...")
             self.bottles = messages
             self.collectionView!.reloadData()
-            print("SUCCESS: Done!")
-            print("\n\n\n\n\n\nRosebud")
-            dump(self.bottles)
-            print("\n\n\n\n\n\n")
+            
         }
     }
     
@@ -59,14 +53,11 @@ class BottlesViewController: UICollectionViewController, UICollectionViewDelegat
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bottleCell", for: indexPath) as! BottleCollectionViewCell
     
-        cell.backgroundColor = UIColor.red
-        
-        dump(bottles[indexPath.row])
-        
-//
-//        cell.bgImageView.image = UIImage(named: "")
-//        cell.fgImageView.image = UIImage(named: "")
-//        cell.bottleImageView.image = UIImage(named: "")
+        cell.backgroundColor = UIColor.cyan
+        cell.loadViews()
+        cell.bgImageView.image = UIImage(named: "bgwave")
+        cell.fgImageView.image = UIImage(named: "fgwave")
+        cell.bottleImageView.image = UIImage(named: "bottle")
         
         return cell
     }
