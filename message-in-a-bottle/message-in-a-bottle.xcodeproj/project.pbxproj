@@ -21,6 +21,7 @@
 		B50B83271DE0D9D00099A0AF /* ChatCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B83261DE0D9D00099A0AF /* ChatCollectionViewController.swift */; };
 		B50B832C1DE0ECA10099A0AF /* ChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B832B1DE0ECA10099A0AF /* ChatCollectionViewCell.swift */; };
 		B50B832E1DE0F9D10099A0AF /* ChatroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B832D1DE0F9D10099A0AF /* ChatroomViewController.swift */; };
+		B50D0A1B1DE21C8100BE5115 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50D0A1A1DE21C8100BE5115 /* ChatTableViewCell.swift */; };
 		B5D2DDA71DE0A625001F2CCE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DDA61DE0A625001F2CCE /* LoginViewController.swift */; };
 		B5D2DDA91DE0A73F001F2CCE /* OceansCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DDA81DE0A73F001F2CCE /* OceansCollectionViewController.swift */; };
 		B5D2DDAB1DE0A9D5001F2CCE /* OceanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DDAA1DE0A9D5001F2CCE /* OceanCollectionViewCell.swift */; };
@@ -57,6 +58,7 @@
 		B50B83261DE0D9D00099A0AF /* ChatCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCollectionViewController.swift; sourceTree = "<group>"; };
 		B50B832B1DE0ECA10099A0AF /* ChatCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCollectionViewCell.swift; sourceTree = "<group>"; };
 		B50B832D1DE0F9D10099A0AF /* ChatroomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatroomViewController.swift; sourceTree = "<group>"; };
+		B50D0A1A1DE21C8100BE5115 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		B5D2DDA61DE0A625001F2CCE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B5D2DDA81DE0A73F001F2CCE /* OceansCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OceansCollectionViewController.swift; sourceTree = "<group>"; };
 		B5D2DDAA1DE0A9D5001F2CCE /* OceanCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OceanCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				B50B832D1DE0F9D10099A0AF /* ChatroomViewController.swift */,
+				B50D0A1A1DE21C8100BE5115 /* ChatTableViewCell.swift */,
 			);
 			name = ChatroomVC;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				B50B83231DE0A22C0099A0AF /* Ocean.swift in Sources */,
 				B50B832E1DE0F9D10099A0AF /* ChatroomViewController.swift in Sources */,
 				B5D2DDA91DE0A73F001F2CCE /* OceansCollectionViewController.swift in Sources */,
+				B50D0A1B1DE21C8100BE5115 /* ChatTableViewCell.swift in Sources */,
 				B5D2DDBE1DE1EEFF001F2CCE /* OceanBottleViewMsgsViewController.swift in Sources */,
 				B50B831D1DE0A19D0099A0AF /* FirebaseMethods.swift in Sources */,
 				1B12092A1DE1FD31003E306E /* Theme.swift in Sources */,

@@ -17,6 +17,7 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
     
     var chatID = String()
     var chatMessagesArray = [ChatMessage]()
+    var recipientName = String()
     
     var chatRef = FIRDatabase.database().reference()
     
@@ -71,7 +72,6 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
     
     func readFireBaseData() {
         FirebaseMethods.retrieveChatMessages(chatID: chatID) { (chatMessages) in
-            print("INSIDE CHAT CV")
             for chat in chatMessages {
                 self.chatMessagesArray.append(chat)
 //            self.tableView.insertRows(at: [IndexPath(row: self.chatMessagesArray.count-1, section: 0)], with: .automatic)
@@ -131,7 +131,11 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatMessageCell", for: indexPath)
         
-        cell.textLabel?.text = chatMessagesArray[indexPath.row].content
+        let nameToShow = chatMessagesArray[indexPath.row].senderName
+        let contentToShow = chatMessagesArray[indexPath.row].content
+        let cellToShow = "\(nameToShow): \(contentToShow)"
+        
+        cell.textLabel?.text = cellToShow
 
         return cell
     }

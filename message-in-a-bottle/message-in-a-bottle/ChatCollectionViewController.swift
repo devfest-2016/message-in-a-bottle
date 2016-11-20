@@ -81,6 +81,7 @@ class ChatCollectionViewController: UICollectionViewController {
                 for indexPath in indexPaths {
                     dest.chatID = chatRoomArray[indexPath.item].chatID
                     dest.chatRef = FIRDatabase.database().reference().child("chatMessages").child(dest.chatID)
+                    dest.recipientName = chatRoomArray[indexPath.item].partnerName
                 }
             }
         }

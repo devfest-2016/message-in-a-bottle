@@ -248,38 +248,6 @@ class FirebaseMethods {
     }
     
     
-//    static func retrieveChatMessages(for userID: String, chatID: String, with completion: @escaping ([ChatMessage]) -> Void) {
-//        let chatRef = FIRDatabase.database().reference().child("chatMessages").child(chatID)
-//        var chatMessages = [ChatMessage]()
-//        
-//        print("Chat Ref: \(chatRef)")
-//        
-//        chatRef.observe(.childAdded, with: { (snapshot) in
-//            print("OBSERVING INSIDE")
-//            guard let chatInfoRaw = snapshot.value as? [String:Any] else {return}
-//            print("CHAT INFO RAW: \(chatInfoRaw)")
-//
-//            for (chatMessageUniqueID, chatMessage) in chatInfoRaw {
-//                guard let chatInfo = chatMessage as? [String:Any] else {return}
-//                let messageID = chatMessageUniqueID
-//
-//                guard let senderName = chatInfo["senderName"] as? String,
-//                    let senderUniqueKey = chatInfo["senderUniqueKey"] as? String,
-//                    let content = chatInfo["messageContent"] as? String,
-//                    let timestamp = chatInfo["timestamp"] as? Double
-//                    else {return}
-//                
-//                let chatMessageToAppend = ChatMessage(senderName: senderName, messageID: messageID, senderUniqueKey: senderUniqueKey, content: content, timestamp: timestamp)
-//                print(chatMessageToAppend)
-//                chatMessages.append(chatMessageToAppend)
-//                
-//            }
-//                print(chatMessages)
-//                completion(chatMessages)
-//        })
-//    }
-    
-    
     static func retrieveChatRooms(for userID: String, with completion: @escaping ([Chatroom]) -> Void) {
         let chatRef = FIRDatabase.database().reference().child("users").child(userID).child("chatroom")
         
@@ -314,40 +282,7 @@ class FirebaseMethods {
             }
         })
     }
-    
-    
-    /*
-     Sending data TO Firebase:
-     
-     1. func to add 2 users to specific chat
-     
-     2. func to remove user from specific chat
-     
-     3. create new user
-     
-     4. create new chat
-     
-     5. add message to chat
-     
-     6. create bottle message for specific ocean
-     
-     */
-    
-    
-    /*
-     Retreiving data FROM Firebase:
-     
-     1. append messages for each user to [Message]() that will be dislpayed on table view
-     
-     2. append messages to [Message]() in ocean in tableView
-     
-     3. retreive user info of given user / self
-     
-     
-     */
-    
-    
-    
+
 }
 
 
