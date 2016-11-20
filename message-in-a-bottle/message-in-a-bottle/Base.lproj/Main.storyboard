@@ -174,7 +174,7 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSJ-fd-yPm">
                                             <rect key="frame" x="24" y="32" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -188,7 +188,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="chatTitleLabel" destination="WSJ-fd-yPm" id="DjX-eH-Bzr"/>
-                                    <segue destination="eAz-kW-wXr" kind="show" id="iGE-YS-nwX"/>
+                                    <segue destination="eAz-kW-wXr" kind="show" identifier="individualChat" id="iGE-YS-nwX"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -495,6 +495,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="VTs-lB-7Mx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.97563976049423218" green="0.92924422025680542" blue="0.73471325635910034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
