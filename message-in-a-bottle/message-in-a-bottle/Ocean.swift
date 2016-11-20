@@ -28,17 +28,17 @@ class Ocean {
     }
     
     static let oceanNames = [
-    "Hospitality",
-    "Technology",
-    "Music",
-    "Media",
-    "Fashion",
-    "Graphic Design",
-    "Publishing",
-    "Finance",
-    "Government",
-    "Education",
-    ]
+        "Hospitality",
+        "Technology",
+        "Music",
+        "Media",
+        "Fashion",
+        "Graphic Design",
+        "Publishing",
+        "Finance",
+        "Government",
+        "Education",
+        ]
 }
 
 

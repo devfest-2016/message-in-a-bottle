@@ -17,6 +17,7 @@ class ChatroomViewController: UIViewController {
     var previousMessage = [ChatMessage]()
     
     override func viewDidLoad() {
+
         
             //TableView
         
@@ -48,6 +49,9 @@ class ChatroomViewController: UIViewController {
                 sendButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
                 sendButton.leftAnchor.constraint(equalTo: textField.rightAnchor).isActive = true
 //                sendButton.topAnchor.constraint(equalTo: tableView.bottomAnchor).isActive = true
+
+
+        super.viewDidLoad()
 
     }
 
