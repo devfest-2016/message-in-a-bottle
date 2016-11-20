@@ -12,28 +12,30 @@ class ChatTableViewCell: UITableViewCell {
 
     var displayNameLabel = UILabel()
     var messageContentLabel = UILabel()
-//
-//    init(frame: CGRect) {
-//        
-//        configureCell()
-//        
-//    }
-//    
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        fatalError("init(coder:) has not been implemented")
-//        
-//    }
+
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: "chatMessageCell")
+        
+        configureCell()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     
     private func configureCell() {
         
         addSubview(displayNameLabel)
         displayNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        displayNameLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10)
+        displayNameLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
+        displayNameLabel.font = UIFont(name: "Helvetica-Bold", size: 16)
         
         addSubview(messageContentLabel)
         messageContentLabel.translatesAutoresizingMaskIntoConstraints = false
-        messageContentLabel.leftAnchor.constraint(equalTo: displayNameLabel.leftAnchor, constant: 5)
+        messageContentLabel.leftAnchor.constraint(equalTo: displayNameLabel.rightAnchor, constant: 5).isActive = true
     }
 
 }
