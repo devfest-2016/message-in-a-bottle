@@ -287,7 +287,9 @@ class FirebaseMethods {
                     let chatroom = Chatroom(chatID: chatID, timestamp: timestamp, lastMessage: previousMessage, partnerName: partnerName)
                     
                     chatRoomArray.append(chatroom)
-                    completion(chatRoomArray)
+                    if chatRoomArray.count == chatroomRaw.count {
+                        completion(chatRoomArray)
+                    }
                 })
             }
         })
