@@ -100,7 +100,6 @@ class FirebaseMethods {
         
         print(bottleRef)
         bottleRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let messageInfo = snapshot.value as? [String: Any] else { print("FAILURE: snapshot.value has no value"); return }
 
             guard let messageInfo = snapshot.value as? [String: Any] else { print("FAILURE: snapshot.value has no value for ocean value \(oceanID)"); return }
         
@@ -114,12 +113,6 @@ class FirebaseMethods {
                 let body = messageInfo["body"] as? String,
                 let timestamp = messageInfo["timestamp"] as? Double
                 else { print("FAILURE: Data unavailable in messageInfo");return }
-            
-
-                let body = messageInfo["messageContent"] as? String,
-                let timestampString = messageInfo["timestamp"] as? String,
-                let timestamp = Double(timestampString)
-            else { print("FAILURE: Data unavailable in messageInfo");return }
                 
 
             
