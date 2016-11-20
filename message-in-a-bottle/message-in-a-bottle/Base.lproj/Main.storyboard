@@ -177,7 +177,7 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSJ-fd-yPm">
                                             <rect key="frame" x="24" y="32" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -191,7 +191,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="chatTitleLabel" destination="WSJ-fd-yPm" id="DjX-eH-Bzr"/>
-                                    <segue destination="eAz-kW-wXr" kind="show" id="iGE-YS-nwX"/>
+                                    <segue destination="eAz-kW-wXr" kind="show" identifier="individualChat" id="iGE-YS-nwX"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
