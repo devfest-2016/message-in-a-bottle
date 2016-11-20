@@ -20,6 +20,10 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
     var messageCount = 0
     
     
+    var chatRef = FIRDatabase.database().reference()
+    
+    var timer = Timer()
+    
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -63,37 +67,50 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
         sendButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         sendButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.30).isActive = true
         sendButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
-        
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        FirebaseMethods.retrieveChatMessages(chatID: chatID) { (chatMessages) in
-            for chat in chatMessages {
-                self.chatMessagesArray.append(chat)
-            }
-            self.messageCount = self.chatMessagesArray.count
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-            self.reloadChatTableView()
-        }
         
+        
+        var chatMessages = [ChatMessage]()
+        
+        print("Chat Ref: \(chatRef)")
+        
+        chatRef.observe(.childAdded, with: { (snapshot) in
+            print("OBSERVING INSIDE")
+            guard let chatInfoRaw = snapshot.value as? [String:Any] else {return}
+            let messageID = snapshot.key
+            print("CHAT INFO RAW: \(chatInfoRaw)")
+            
+            guard let senderName = chatInfoRaw["senderName"] as? String,
+                let senderUniqueKey = chatInfoRaw["senderUniqueKey"] as? String,
+                let content = chatInfoRaw["messageContent"] as? String,
+                let timestampString = chatInfoRaw["timestamp"] as? String,
+                let timestamp = Double(timestampString)
+                else {return}
+            
+            let chatMessageToAppend = ChatMessage(senderName: senderName, messageID: messageID, senderUniqueKey: senderUniqueKey, content: content, timestamp: timestamp)
+            print("CHAT TO APPEND: \(chatMessageToAppend)\n\n\n")
+            self.chatMessagesArray.append(chatMessageToAppend)
+            print("COUNT: \(self.chatMessagesArray.count)\n\n\n")
+            self.tableView.reloadData()
+            
+        })
     }
-    
-    
-    func reloadChatTableView() {
-        chatMessagesArray.sort { $0.timestamp < $1.timestamp }
-    }
-    
-    
+
+
     func sendChat(sender: UIButton!) {
         
         guard let userKey = FIRAuth.auth()?.currentUser?.uid else {return}
         FirebaseMethods.sendMessage(senderID: userKey, messageContent: textField.text!, chatID: chatID)
-        reloadChatTableView()
+
+        textField.text = ""
+        
     }
+    
+
+
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -105,7 +122,7 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
         
         cell.textLabel?.text = chatMessagesArray[indexPath.row].content
 
-//        cell.textLabel?.text = "TEST"
+
         return cell
     }
     

@@ -18,6 +18,9 @@ class ChatCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+//        self.collectionView!.register(UIColvartionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
         
         FirebaseMethods.retrieveChatRooms(for: (FIRAuth.auth()?.currentUser!.uid)!) { (chatrooms) in
             print("CHATROOMS: \(chatrooms)")
@@ -59,6 +62,7 @@ class ChatCollectionViewController: UICollectionViewController {
             if let indexPaths = collectionView?.indexPathsForSelectedItems {
                 for indexPath in indexPaths {
                     dest.chatID = chatRoomArray[indexPath.item].chatID
+                    dest.chatRef = FIRDatabase.database().reference().child("chatMessages").child(dest.chatID)
                 }
             }
         }
