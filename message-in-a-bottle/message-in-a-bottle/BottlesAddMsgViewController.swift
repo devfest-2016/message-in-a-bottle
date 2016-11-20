@@ -10,19 +10,19 @@ import UIKit
 import FirebaseAuth
 class BottlesAddMsgViewController: UIViewController {
     
-    @IBOutlet weak var titleTextField: UITextField!
-
-    @IBOutlet weak var messageTextField: UITextView!
-    
     var oceanName = ""
     
+    let backgroundImage = UIImageView()
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var messageTextField: UITextView!
+    
+    // Init
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupView()
     }
 
-
-
+    // Button actions
     @IBAction func sendButtonAction(_ sender: UIButton) {
         if messageTextField.text != "" && titleTextField.text != ""{
             
@@ -51,16 +51,31 @@ class BottlesAddMsgViewController: UIViewController {
     
     @IBAction func backButtonAction(_ sender: UIButton) {
         dismiss(animated: true) {
-            
         }
     }
     
     func createAlertWith(title: String, message: String) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
         alert.addAction(UIAlertAction(title: "Sure Can Do", style: UIAlertActionStyle.cancel, handler: nil))
-        
         return alert
+    }
+    
+    // Setup view
+    func setupView() {
+        // Add background
+        self.view.insertSubview(backgroundImage, at: 0)
+        backgroundImage.image = UIImage(named: "background")
+        backgroundImage.contentMode = .scaleAspectFill
+        backgroundImage.frame = self.view.frame
+        
+        // Add background blur
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.view.frame
+        backgroundImage.addSubview(blurEffectView)
+        
+        // Text field rounded corners
+        messageTextField.layer.cornerRadius = 7
     }
     
 }
