@@ -11,6 +11,8 @@ import Firebase
 
 class ChatroomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
+    
     var tableView = UITableView()
     let textField = UITextField()
     let sendButton = UIButton()
@@ -30,9 +32,11 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
 
         super.viewDidLoad()
         
+        self.navigationItem.title = "Chat with \(recipientName)"
+        
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "chatMessageCell")
+        tableView.register(ChatTableViewCell.self, forCellReuseIdentifier: "chatMessageCell")
         
         //TableView
         
@@ -110,30 +114,42 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
         textField.text = ""
         
     }
-    
 
-
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chatMessagesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "chatMessageCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "chatMessageCell", for: indexPath) as! ChatTableViewCell
         
-        let message = chatMessagesArray[indexPath.row]
+        let senderNameInitials = generateInitials(name: chatMessagesArray[indexPath.row].senderName)
         
-        let nameToShow = message.senderName
-        let contentToShow = message.content
+        cell.displayNameLabel.text = "\(senderNameInitials): "
+        cell.messageContentLabel.text = chatMessagesArray[indexPath.row].content
         
-        
-        let cellToShow = "\(nameToShow): \(contentToShow)"
-        
-        cell.textLabel?.text = cellToShow
-
 
         return cell
+    }
+    
+    func generateInitials(name: String) -> String {
+        
+        var initials = [Character]()
+        var initialString = String()
+        
+        let nameArray = name.components(separatedBy: " ")
+        
+        for item in nameArray {
+            let character = item.characters
+            initials.append(character.first!)
+        }
+        
+        for initial in initials {
+            initialString += String(initial)
+            
+        }
+        
+        return initialString
     }
     
 
