@@ -72,8 +72,13 @@ class OceansCollectionViewController: UICollectionViewController, UICollectionVi
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dest = segue.destination as? OceanBottlesCollectionViewController
-        
-        dest?.ocean = Ocean.init(name: "Technology")
+        if let dest = segue.destination as? OceanBottlesCollectionViewController, let indexPath = collectionView?.indexPathsForSelectedItems {
+            
+            guard let index = indexPath.first?.row else { return }
+            
+            let oceanName = Ocean.oceanNames[index]
+            
+            dest.ocean = Ocean.init(name: oceanName)
+        }
     }
 }
