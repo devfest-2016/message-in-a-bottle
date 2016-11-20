@@ -101,8 +101,9 @@ class FirebaseMethods {
                 let userUniqueKey = messageInfo["uniqueKey"] as? String,
                 let title = messageInfo["title"] as? String,
 
-                let body = messageInfo["body"] as? String,
-                let timestamp = messageInfo["timestamp"] as? Double
+                let body = messageInfo["messageContent"] as? String,
+                let timestampString = messageInfo["timestamp"] as? String,
+                let timestamp = Double(timestampString)
                 else { print("FAILURE: Data unavailable in messageInfo");return }
                 
 
