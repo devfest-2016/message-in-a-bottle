@@ -17,15 +17,16 @@ class ChatCollectionViewCell: UICollectionViewCell {
     func setUpViews() {
         chatTitleLabel.text = ""
         
+        
         self.contentView.addSubview(chatWithLabel)
         chatWithLabel.text = "Chat with"
-        chatWithLabel.frame = CGRect(x: 0, y: 0, width: self.contentView.frame.width, height: self.contentView.frame.height * 0.25)gi
+        chatWithLabel.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height * 0.25)
         chatWithLabel.textAlignment = .center
         chatWithLabel.font = UIFont(name: "HelveticaNeue-Light", size: 13)
         
         
         self.contentView.addSubview(chatParticipantLabel)
-        chatParticipantLabel.frame = CGRect(x: 0, y: contentView.frame.height * 0.25, width: self.contentView.frame.width, height: self.contentView.frame.height * 0.6)
+        chatParticipantLabel.frame = CGRect(x: 0, y: frame.height * 0.25, width: frame.width, height: self.contentView.frame.height * 0.6)
         chatParticipantLabel.numberOfLines = 2
         chatParticipantLabel.textAlignment = .center
         chatParticipantLabel.font = UIFont(name: "HelveticaNeue", size: 20)
