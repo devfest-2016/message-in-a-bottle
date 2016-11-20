@@ -137,11 +137,11 @@ class FirebaseMethods {
         let userOneDictionary = ["recipientUniqueID": userTwo.uniqueKey, "recipientName": userTwo.name]
         let userTwoDictionary = ["recipientUniqueID": userOne.uniqueKey, "recipientName": userOne.name]
         
-        ref.child("users").child(userOne.uniqueKey).child("chats").setValue(userOneDictionary, forKey: chatID)
+        ref.child("users").child(userOne.uniqueKey).child("chatroom").setValue(userOneDictionary, forKey: chatID)
         
-        ref.child("users").child(userTwo.uniqueKey).child("chats").setValue(userTwoDictionary, forKey: chatID)
+        ref.child("users").child(userTwo.uniqueKey).child("chatroom").setValue(userTwoDictionary, forKey: chatID)
         
-        ref.child("chats").setValue(["previousMessage": "Be the first to start a conversation!", "timestamp": String(describing: Date().timeIntervalSince1970)], forKey: chatID)
+        ref.child("chatroom").setValue(["previousMessage": "Be the first to start a conversation!", "timestamp": String(describing: Date().timeIntervalSince1970)], forKey: chatID)
         
         
         ref.setValue(chatID, forKey: "chatMessages")
@@ -156,7 +156,7 @@ class FirebaseMethods {
         
         let messageID = ref.childByAutoId().key
         
-        ref.child("chats").setValue(["previousMessage": messageContent, "timestamp": timeStamp], forKey: chatID)
+        ref.child("chatroom").setValue(["previousMessage": messageContent, "timestamp": timeStamp], forKey: chatID)
         
         ref.child("chatMessages").child(chatID).setValue(["senderName": sender.name, "senderUniqueKey": sender.uniqueKey, "messageContent": messageContent, "timestamp": timeStamp] , forKey: messageID)
         
@@ -175,19 +175,19 @@ class FirebaseMethods {
         let currentUser = FIRAuth.auth()?.currentUser?.uid
         
         
-        ref.child("users").child(currentUser!).child("chats").observeSingleEvent(of: .value, with: { snapshot in
+        ref.child("users").child(currentUser!).child("chatroom").observeSingleEvent(of: .value, with: { snapshot in
             
             if let chatSnapshot = snapshot.value as? [String: Any] {
                 for item in chatSnapshot {
                     
                     if item.key == chatID {
                         
-                        ref.child("users").child(currentUser!).child("chats").removeValue()
-                        ref.child("chats").child(chatID).removeValue()
+                        ref.child("users").child(currentUser!).child("chatroom").removeValue()
+                        ref.child("chatroom").child(chatID).removeValue()
                         ref.child("chatMessages").child(chatID).child(messageID).removeValue()
                         
                         guard let secondUserUniqueKey = item.value as? String else {return}
-                        ref.child("users").child(secondUserUniqueKey).child("chats").child(messageID).removeValue()
+                        ref.child("users").child(secondUserUniqueKey).child("chatroom").child(messageID).removeValue()
                         
                     }
                 }
@@ -262,19 +262,15 @@ class FirebaseMethods {
                 guard let senderName = chatInfo["senderName"] as? String,
                     let senderUniqueKey = chatInfo["senderUniqueKey"] as? String,
                     let content = chatInfo["messageContent"] as? String,
-                    let timestamp = chatInfo["timeStampString"] as? Double
+                    let timestamp = chatInfo["timestamp"] as? Double
                     else {return}
-                print("SENDER: \(senderName)")
-                print("senderUniqueKey: \(senderUniqueKey)")
-                print("content: \(content)")
-                print("timestamp: \(timestamp)")
                 
                 let chatMessageToAppend = ChatMessage(senderName: senderName, messageID: messageID, senderUniqueKey: senderUniqueKey, content: content, timestamp: timestamp)
                 print(chatMessageToAppend)
                 chatMessages.append(chatMessageToAppend)
                 
             }
-            
+                print(chatMessages)
                 completion(chatMessages)
         })
     }
@@ -284,32 +280,31 @@ class FirebaseMethods {
         let chatRef = FIRDatabase.database().reference().child("users").child(userID)
         
         chatRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            print("SNAPSHOT INSIDE RETRIEVE: \(snapshot.value)")
             var chatRoomArray = [Chatroom]()
             guard let chatroomRaw = snapshot.value as? [String:Any] else {return}
             
-            guard let chats = chatroomRaw["chats"] as? [String: Any] else {return}
-            print("CHATS INSIDE RETRIEVE: \(chats)\n\n\n")
+            guard let chats = chatroomRaw["chatroom"] as? [String: Any] else {return}
             
             for chat in chats {
                 print("CHAT: \(chat.key)")
                 print("user: \(userID)")
         
                 let chatID = chat.key
-                guard let parterNameString = chat.value as? String else {return}
+                
+                guard let parterNameString = chat.value as? [String: Any] else {return}
+                guard let partnerName = parterNameString["recipientName"] as? String else {return}
                 
                 retrieveChatMessages(for: userID, chatID: chatID, with: { (chatMessages) in
+                    print(chatMessages)
                     
                     for chat in chatMessages {
                         let lastMessage = chat.content
                         let timestamp = chat.timestamp
                         
-                        let chatroom = Chatroom(chatID: chatID, timestamp: timestamp, lastMessage: lastMessage, partnerName: parterNameString)
+                        let chatroom = Chatroom(chatID: chatID, timestamp: timestamp, lastMessage: lastMessage, partnerName: partnerName)
                         chatRoomArray.append(chatroom)
-                        print("CHATROOM MADE: \(chatroom.chatID)")
                     }
                     
-                    print("CHATROOMARRAY COUNT: \(chatRoomArray.count)")
                     completion(chatRoomArray)
 
                 })
