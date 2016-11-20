@@ -22,8 +22,8 @@ class LoginViewController: UIViewController {
         User.retrieveUser(with: "L0HzRRZn1GZhXjEfdaT35q5N3ck2") { (user) in
             dump(user)
         }
-        self.view.backgroundColor = UIColor.blue
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor.cyan
+       
         signupview = SignupView(frame: CGRect(x: self.view.frame.size.width * 0.125, y: self.view.frame.size.height, width: self.view.frame.size.width * 0.75, height: self.view.frame.size.height * 0.6))
         signupview.loadViews()
         self.view.addSubview(signupview)
@@ -31,9 +31,14 @@ class LoginViewController: UIViewController {
 
     
     @IBAction func loginButtonAction(_ sender: UIButton) {
-        guard let email = emailTextField.text else {return}
-        guard let password = passwordTextField.text else {return}
-        FirebaseMethods.signInButton(email: email, password: password)
+        if emailTextField.text != "" && passwordTextField.text != "" {
+            FirebaseMethods.signInButton(email: emailTextField.text!, password: passwordTextField.text!)
+        }
+        
+        
+        
+//        let alert = createAlertWith(title: "Eh", message: "Throwing empty bottles are bad for the environment.")
+//        self.present(alert, animated: true, completion: nil)
         
     }
     
@@ -53,6 +58,14 @@ class LoginViewController: UIViewController {
         }
     }
 
+    func createAlertWith(title: String, message: String) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Sure Can Do", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        return alert
+    }
+    
 }
 
 

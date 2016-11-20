@@ -12,6 +12,7 @@
 		1B0BBE1F1DE0980E0018E274 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B0BBE1E1DE0980E0018E274 /* Assets.xcassets */; };
 		1B0BBE221DE0980E0018E274 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B0BBE201DE0980E0018E274 /* LaunchScreen.storyboard */; };
 		1B0BBE2A1DE0EA720018E274 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0BBE291DE0EA720018E274 /* Date.swift */; };
+		1B12092A1DE1FD31003E306E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1209291DE1FD31003E306E /* Theme.swift */; };
 		B50B831D1DE0A19D0099A0AF /* FirebaseMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B831C1DE0A19D0099A0AF /* FirebaseMethods.swift */; };
 		B50B831F1DE0A1EA0099A0AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B50B831E1DE0A1EA0099A0AF /* GoogleService-Info.plist */; };
 		B50B83211DE0A1FE0099A0AF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B83201DE0A1FE0099A0AF /* User.swift */; };
@@ -46,6 +47,7 @@
 		1B0BBE211DE0980E0018E274 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B0BBE231DE0980E0018E274 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B0BBE291DE0EA720018E274 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		1B1209291DE1FD31003E306E /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		2E7740879161FE6E5F218914 /* Pods-message-in-a-bottle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-message-in-a-bottle.release.xcconfig"; path = "Pods/Target Support Files/Pods-message-in-a-bottle/Pods-message-in-a-bottle.release.xcconfig"; sourceTree = "<group>"; };
 		B50B831C1DE0A19D0099A0AF /* FirebaseMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseMethods.swift; sourceTree = "<group>"; };
 		B50B831E1DE0A1EA0099A0AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				1B0BBE201DE0980E0018E274 /* LaunchScreen.storyboard */,
 				1B0BBE231DE0980E0018E274 /* Info.plist */,
 				1B0BBE291DE0EA720018E274 /* Date.swift */,
+				1B1209291DE1FD31003E306E /* Theme.swift */,
 			);
 			path = "message-in-a-bottle";
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				B5D2DDA91DE0A73F001F2CCE /* OceansCollectionViewController.swift in Sources */,
 				B5D2DDBE1DE1EEFF001F2CCE /* OceanBottleViewMsgsViewController.swift in Sources */,
 				B50B831D1DE0A19D0099A0AF /* FirebaseMethods.swift in Sources */,
+				1B12092A1DE1FD31003E306E /* Theme.swift in Sources */,
 				B50B83271DE0D9D00099A0AF /* ChatCollectionViewController.swift in Sources */,
 				E446AE141DE09D4E0084A325 /* LandingViewController.swift in Sources */,
 				B5D2DDB21DE0AE9B001F2CCE /* Chatroom.swift in Sources */,

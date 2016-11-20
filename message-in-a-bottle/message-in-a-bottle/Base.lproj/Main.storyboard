@@ -105,6 +105,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="zAd-Kq-QFn"/>
+                    <connections>
+                        <outlet property="bottlesButton" destination="gxd-no-kVQ" id="Qy9-L1-7gc"/>
+                        <outlet property="chatButton" destination="z4v-Gd-oqD" id="MQe-qf-Z9F"/>
+                        <outlet property="oceansButton" destination="Dcd-xF-ZY4" id="bxg-n2-9UM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxt-Jr-IPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

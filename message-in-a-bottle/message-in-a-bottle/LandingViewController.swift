@@ -10,12 +10,28 @@ import UIKit
 
 class LandingViewController: UIViewController {
 
+    @IBOutlet weak var bottlesButton: UIButton!
+    @IBOutlet weak var oceansButton: UIButton!
+    @IBOutlet weak var chatButton: UIButton!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setUpViews()
         // Do any additional setup after loading the view.
     }
 
+    func setUpViews() {
+        
+        bottlesButton.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height * 1/3)
+        //bottlesButton.backgroundColor
+        
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
