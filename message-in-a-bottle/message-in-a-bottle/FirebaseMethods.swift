@@ -127,30 +127,34 @@ class FirebaseMethods {
         let userOneDictionary = ["recipientUniqueID": userTwo.uniqueKey, "recipientName": userTwo.name]
         let userTwoDictionary = ["recipientUniqueID": userOne.uniqueKey, "recipientName": userOne.name]
         
-        ref.child("users").child(userOne.uniqueKey).child("chatroom").setValue(userOneDictionary, forKey: chatID)
+        ref.child("users").child(userOne.uniqueKey).child("chatroom").updateChildValues([chatID: userOneDictionary])
         
-        ref.child("users").child(userTwo.uniqueKey).child("chatroom").setValue(userTwoDictionary, forKey: chatID)
+        ref.child("users").child(userOne.uniqueKey).child("chatroom").updateChildValues([chatID: userTwoDictionary])
         
-        ref.child("chatroom").setValue(["previousMessage": "Be the first to start a conversation!", "timestamp": String(describing: Date().timeIntervalSince1970)], forKey: chatID)
+        ref.child("chatroom").updateChildValues([chatID: ["previousMessage": "Be the first to start a conversation!", "timestamp": String(describing: Date().timeIntervalSince1970)]])
         
-        
-        ref.setValue(chatID, forKey: "chatMessages")
+        ref.updateChildValues(["chatMessages": chatID])
         
     }
     
     
-    static func sendMessage(sender: User, messageContent: String, chatID: String) {
+    static func sendMessage(senderID: String, messageContent: String, chatID: String) {
         
-        let ref = FIRDatabase.database().reference().root
-        let timeStamp = Date().timeIntervalSince1970.description
-        
-        let messageID = ref.childByAutoId().key
-        
-        ref.child("chatroom").setValue(["previousMessage": messageContent, "timestamp": timeStamp], forKey: chatID)
-        
-        ref.child("chatMessages").child(chatID).setValue(["senderName": sender.name, "senderUniqueKey": sender.uniqueKey, "messageContent": messageContent, "timestamp": timeStamp] , forKey: messageID)
-        
-        
+        User.retrieveUser(with: senderID) { (user) in
+            let ref = FIRDatabase.database().reference()
+            let timeStamp = Date().timeIntervalSince1970.description
+            
+            let messageID = ref.childByAutoId().key
+            
+            print(senderID)
+            print(messageContent)
+            print(chatID)
+            print("MESSAGE ID: \(messageID)")
+            
+            ref.child("chatroom").updateChildValues([chatID: ["previousMessage": messageContent, "timestamp": timeStamp]])
+            
+            ref.child("chatMessages").child(chatID).updateChildValues([messageID: ["senderUniqueKey": senderID, "messageContent": messageContent, "timestamp": timeStamp, "senderName": user?.name]])
+        }
         
         
     }
