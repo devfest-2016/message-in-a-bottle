@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LandingViewController: UIViewController {
 
@@ -32,6 +33,8 @@ class LandingViewController: UIViewController {
     }
 
     func setUpViews() {
+
+        
         self.view.backgroundColor = UIColor.themeTealBlue
         self.view.addSubview(reframeView)
         reframeView.frame = CGRect(x:0,y:self.view.frame.height * 0.1,width: self.view.frame.width, height: self.view.frame.height * 0.9)
@@ -92,6 +95,21 @@ class LandingViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    
+    @IBAction func logoutButton(_ sender: Any) {
+        do {
+            try FIRAuth.auth()?.signOut()
+        } catch {
+            print(error)
+        }
+        
+        if let storyboard = self.storyboard {
+            let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+            self.present(loginVC, animated: false, completion: nil)
+        }
     }
     
 
