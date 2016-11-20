@@ -10,6 +10,13 @@ import UIKit
 
 class LandingViewController: UIViewController {
 
+    @IBOutlet weak var bottlesButton: UIButton!
+    @IBOutlet weak var oceansButton: UIButton!
+    @IBOutlet weak var chatButton: UIButton!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
