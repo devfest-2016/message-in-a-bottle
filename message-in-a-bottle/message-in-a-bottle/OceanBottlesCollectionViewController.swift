@@ -13,12 +13,22 @@ import UIKit
 class OceanBottlesCollectionViewController: UICollectionViewController {
 
     var ocean: Ocean!
+    var bottles = [Message]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        FirebaseMethods.retrieveMessages(for: ocean) { (messages) in
+            self.bottles = messages
+            self.collectionView?.reloadData()
+        }
     }
 
  
@@ -32,7 +42,7 @@ class OceanBottlesCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 3
+        return bottles.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

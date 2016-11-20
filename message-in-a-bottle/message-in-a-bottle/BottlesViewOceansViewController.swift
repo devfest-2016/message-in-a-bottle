@@ -16,7 +16,7 @@ class BottlesViewOceansViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FirebaseMethods.createNewBottle(uniqueID: (FIRAuth.auth()?.currentUser?.uid)!, oceanID: "Tech", title: "Hello World", messageContent: "Are we human? Or are we dancer.")
+        FirebaseMethods.createNewBottle(uniqueID: (FIRAuth.auth()?.currentUser?.uid)!, oceanID: "Technology", title: "Hello World", messageContent: "Are we human? Or are we dancer?")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

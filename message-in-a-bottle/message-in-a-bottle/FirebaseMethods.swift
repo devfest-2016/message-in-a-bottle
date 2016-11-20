@@ -188,7 +188,7 @@ class FirebaseMethods {
     //MARK: - Retrieve Messages for Ocean
     
     static func retrieveMessages(for ocean: Ocean, completion: @escaping ([Message]) -> Void) {
-        let oceanRef = FIRDatabase.database().reference().child("oceans").child(ocean.name)
+        let oceanRef = FIRDatabase.database().reference().child("bottles").child(ocean.name)
         
         oceanRef.observeSingleEvent(of: .value, with: { (snapshot) in
             let oceanInfoRaw = snapshot.value as? [String:Any]
