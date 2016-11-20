@@ -24,18 +24,15 @@ struct LoginViewPosition {
 struct NewUserViewPosition {
     
     static let emailPosition = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.20)
-    static let passwordPosition = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.30)
-    static let firstnamePosition = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.40)
-    static let lastnamePosition = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.50)
+    static let passwordPosition = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.28)
+    static let firstnamePosition = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.36)
+    static let lastnamePosition = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.44)
     
-    static let loginPosition = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.6)
-    static let newuserPosition = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.6)
-    static let signupPosition = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.6)
-    static let cancelPosition = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.7)
+    static let loginPosition = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.55)
+    static let newuserPosition = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.55)
+    static let signupPosition = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.55)
+    static let cancelPosition = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.65)
 }
-
-
-
 
 class LoginViewController: UIViewController {
 
@@ -57,6 +54,11 @@ class LoginViewController: UIViewController {
         self.view.backgroundColor = UIColor.themeBrightBlue
         loadViews()
         setPositions()
+        emailTextField.becomeFirstResponder()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.resignFirstResponder()
     }
     
     func animateSignupEntry(view: UIView) {
@@ -162,7 +164,9 @@ extension LoginViewController {
         self.lastnameTextField.isHidden = false
         self.signupButton.isHidden = false
         self.cancelButton.isHidden = false
-        UIView.animateKeyframes(withDuration: 0.3, delay: 0.0, options: [.allowUserInteraction, .calculationModeCubic], animations: {
+        self.newuserButton.isUserInteractionEnabled = false
+        self.cancelButton.isUserInteractionEnabled = false
+        UIView.animateKeyframes(withDuration: 0.2, delay: 0.0, options: [.allowUserInteraction, .calculationModeCubic], animations: {
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1, animations: {
                 self.emailTextField.center = NewUserViewPosition.emailPosition
                 self.passwordTextField.center = NewUserViewPosition.passwordPosition
@@ -211,6 +215,8 @@ extension LoginViewController {
         }) { (success) in
             self.loginButton.isHidden = true
             self.newuserButton.isHidden = true
+            self.newuserButton.isUserInteractionEnabled = true
+            self.cancelButton.isUserInteractionEnabled = true
         }
         
     }
@@ -219,8 +225,9 @@ extension LoginViewController {
         
         self.loginButton.isHidden = false
         self.newuserButton.isHidden = false
-        
-        UIView.animateKeyframes(withDuration: 0.3, delay: 0.0, options: [.allowUserInteraction, .calculationModeCubic], animations: {
+        self.newuserButton.isUserInteractionEnabled = false
+        self.cancelButton.isUserInteractionEnabled = false
+        UIView.animateKeyframes(withDuration: 0.2, delay: 0.0, options: [.allowUserInteraction, .calculationModeCubic], animations: {
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1, animations: {
                 self.emailTextField.center = LoginViewPosition.emailPosition
                 self.passwordTextField.center = LoginViewPosition.passwordPosition
@@ -271,6 +278,8 @@ extension LoginViewController {
             self.lastnameTextField.isHidden = true
             self.signupButton.isHidden = true
             self.cancelButton.isHidden = true
+            self.newuserButton.isUserInteractionEnabled = true
+            self.cancelButton.isUserInteractionEnabled = true
         }
         
     }
@@ -308,11 +317,11 @@ extension LoginViewController {
     
     func loadViews() {
         
-        let borderWidth: CGFloat = 3
+        let borderWidth: CGFloat = 2
         let borderColor = UIColor.themeDarkBlue.cgColor
         
         firstnameTextField = UITextField(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width * 0.6, height: self.view.frame.size.height * 0.06))
-        firstnameTextField.layer.cornerRadius = 7
+        firstnameTextField.layer.cornerRadius = 4
         firstnameTextField.layer.borderWidth = borderWidth
         firstnameTextField.layer.borderColor = borderColor
         firstnameTextField.autocorrectionType = .no
@@ -321,7 +330,7 @@ extension LoginViewController {
         self.view.addSubview(firstnameTextField)
         
         lastnameTextField = UITextField(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width * 0.6, height: self.view.frame.size.height * 0.06))
-        lastnameTextField.layer.cornerRadius = 7
+        lastnameTextField.layer.cornerRadius = 4
         lastnameTextField.layer.borderWidth = borderWidth
         lastnameTextField.layer.borderColor = borderColor
         lastnameTextField.autocorrectionType = .no
@@ -331,7 +340,7 @@ extension LoginViewController {
         
         emailTextField = UITextField(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width * 0.6, height: self.view.frame.size.height * 0.06))
         emailTextField.backgroundColor = UIColor.themeTealBlue
-        emailTextField.layer.cornerRadius = 7
+        emailTextField.layer.cornerRadius = 4
         emailTextField.layer.borderWidth = borderWidth
         emailTextField.layer.borderColor = borderColor
         emailTextField.autocorrectionType = .no
@@ -340,7 +349,7 @@ extension LoginViewController {
         self.view.addSubview(emailTextField)
         
         passwordTextField = UITextField(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width * 0.6, height: self.view.frame.size.height * 0.06))
-        passwordTextField.layer.cornerRadius = 7
+        passwordTextField.layer.cornerRadius = 4
         passwordTextField.layer.borderWidth = borderWidth
         passwordTextField.layer.borderColor = borderColor
         passwordTextField.autocorrectionType = .no
