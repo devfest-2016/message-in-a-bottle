@@ -23,9 +23,10 @@ class Message {
         self.userUniqueKey = userUniqueKey
     }
     
-    func setUser(completion: ()-> Void) {
+    func setUser(completion: @escaping ()-> Void) {
         User.retrieveUser(with: userUniqueKey) { (user) in
             self.from = user
+            completion()
         }
     }
     

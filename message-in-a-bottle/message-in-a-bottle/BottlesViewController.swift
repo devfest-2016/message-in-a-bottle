@@ -18,6 +18,10 @@ class BottlesViewController: UICollectionViewController, UICollectionViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         retrieveBottleMessages()
     }
     
@@ -33,6 +37,9 @@ class BottlesViewController: UICollectionViewController, UICollectionViewDelegat
             self.bottles = messages
             self.collectionView!.reloadData()
             print("SUCCESS: Done!")
+            print("\n\n\n\n\n\nRosebud")
+            dump(self.bottles)
+            print("\n\n\n\n\n\n")
         }
     }
     

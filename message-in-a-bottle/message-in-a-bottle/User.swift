@@ -39,9 +39,9 @@ class User {
                 let uniqueKey = userInfo["uniqueKey"] as? String
                 else { print("\n\n\n\n\n\(userInfoRaw)\n\n\n\n"); return }
             
-            print("Got user info: \(userInfo)")
             
             let user = User(firstName: firstName, lastName: lastName, email: email, uniqueKey: uniqueKey)
+            print("FINDME: Got user info: \(firstName)")
             completion(user)
         })
     }

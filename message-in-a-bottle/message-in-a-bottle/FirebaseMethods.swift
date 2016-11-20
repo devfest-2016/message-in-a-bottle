@@ -16,8 +16,6 @@ class FirebaseMethods {
                 print(error.localizedDescription)
                 
             }
-            guard let user = FIRAuth.auth()?.currentUser else { print("error"); return }
-            //            FIRAuth.auth()?.currentUser?.uid
         }
     }
     
@@ -53,8 +51,8 @@ class FirebaseMethods {
         let messageDictionary = ["uniqueKey": uniqueID, "title": title, "messageContent": messageContent, "timestamp": String(describing: Date().timeIntervalSince1970)]
         let messageID = ref.childByAutoId().key
         
-        ref.child("bottle").child(oceanID).setValue(messageDictionary, forKey: messageID)
-        ref.child("users").child(uniqueID).child("bottles").child(messageID).setValue("true")
+        ref.child("bottles").child(oceanID).child(messageID).updateChildValues(messageDictionary)
+        ref.child("users").child(uniqueID).child("bottles").updateChildValues([messageID:oceanID])
         
     }
     
@@ -66,20 +64,19 @@ class FirebaseMethods {
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in
             var userMessages = [Message]()
             
-            guard let messagesRaw = snapshot.value else { print("FAILURE: snapshot.value has no value"); return }
             
-            print("PROGRESS: messagesRaw: \(messagesRaw)")
+            guard let messagesRaw = snapshot.value else { print("FAILURE: snapshot.value has no value for specific user messages"); return }
+            
             
             guard let messages = messagesRaw as? [String:Any] else { print("FAILURE: messagesRaw cannot be converted to messages"); return }
             
+            
             for message in messages {
                 let messageID = message.key
-                print(message)
                 guard let oceanID = message.value as? String else { print("FAILURE: message.value has no value"); return }
                 
                 FirebaseMethods.retrieveBottle(messageID: messageID, oceanID: oceanID, completion: { (message) in
                     userMessages.append(message)
-                    
                     if userMessages.count == messages.count {
                         completion(userMessages)
                     }
@@ -90,17 +87,21 @@ class FirebaseMethods {
         
     }
     private static func retrieveBottle(messageID: String, oceanID: String, completion: @escaping (Message)->Void){
-        let bottleRef = FIRDatabase.database().reference().child("oceans").child(oceanID).child(messageID)
         
+        let bottleRef = FIRDatabase.database().reference().child("bottles").child(oceanID).child(messageID)
+        
+        
+        print(bottleRef)
         bottleRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let messageInfo = snapshot.value as? [String: Any] else { print("FAILURE: snapshot.value has no value"); return }
+            guard let messageInfo = snapshot.value as? [String: Any] else { print("FAILURE: snapshot.value has no value for ocean value \(oceanID)"); return }
         
             
             guard
                 let userUniqueKey = messageInfo["uniqueKey"] as? String,
                 let title = messageInfo["title"] as? String,
-                let body = messageInfo["body"] as? String,
-                let timestamp = messageInfo["timestamp"] as? Double
+                let body = messageInfo["messageContent"] as? String,
+                let timestampString = messageInfo["timestamp"] as? String,
+                let timestamp = Double(timestampString)
             else { print("FAILURE: Data unavailable in messageInfo");return }
                 
             
