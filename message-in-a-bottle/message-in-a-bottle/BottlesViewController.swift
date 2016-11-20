@@ -21,7 +21,7 @@ class BottlesViewController: UICollectionViewController, UICollectionViewDelegat
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.collectionView?.backgroundColor = UIColor.themeSand
+        self.collectionView?.backgroundColor = UIColor.themeTealBlue
         retrieveBottleMessages()
     }
     
@@ -53,7 +53,6 @@ class BottlesViewController: UICollectionViewController, UICollectionViewDelegat
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bottleCell", for: indexPath) as! BottleCollectionViewCell
     
-        cell.backgroundColor = UIColor.cyan
         cell.loadViews()
         cell.bottleLabel.text = bottles[indexPath.row].title
         

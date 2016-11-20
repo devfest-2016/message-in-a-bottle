@@ -15,6 +15,7 @@ class ChatMessage {
     var content: String
     var timestamp: Double
     var dateSent: Date
+    var senderName: String
     
     init(senderName: String, messageID: String, senderUniqueKey: String, content: String, timestamp: Double) {
         self.messageID = messageID
@@ -22,6 +23,7 @@ class ChatMessage {
         self.content = content
         self.timestamp = timestamp
         self.dateSent = Date(timeIntervalSince1970: timestamp)
+        self.senderName = senderName
     }
     
 }

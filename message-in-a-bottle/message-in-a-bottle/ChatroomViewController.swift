@@ -17,8 +17,10 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
     
     var chatID = String()
     var chatMessagesArray = [ChatMessage]()
-    var messageCount = 0
     
+
+    var recipientName = String()
+
     
     var chatRef = FIRDatabase.database().reference()
     
@@ -67,7 +69,7 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
         sendButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         sendButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.30).isActive = true
         sendButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,10 +80,8 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
         print("Chat Ref: \(chatRef)")
         
         chatRef.observe(.childAdded, with: { (snapshot) in
-            print("OBSERVING INSIDE")
             guard let chatInfoRaw = snapshot.value as? [String:Any] else {return}
             let messageID = snapshot.key
-            print("CHAT INFO RAW: \(chatInfoRaw)")
             
             guard let senderName = chatInfoRaw["senderName"] as? String,
                 let senderUniqueKey = chatInfoRaw["senderUniqueKey"] as? String,
@@ -91,6 +91,7 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
                 else {return}
             
             let chatMessageToAppend = ChatMessage(senderName: senderName, messageID: messageID, senderUniqueKey: senderUniqueKey, content: content, timestamp: timestamp)
+            
             print("CHAT TO APPEND: \(chatMessageToAppend)\n\n\n")
             self.chatMessagesArray.append(chatMessageToAppend)
             print("COUNT: \(self.chatMessagesArray.count)\n\n\n")
@@ -98,6 +99,7 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
             
         })
     }
+
 
 
     func sendChat(sender: UIButton!) {
@@ -120,7 +122,11 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatMessageCell", for: indexPath)
         
-        cell.textLabel?.text = chatMessagesArray[indexPath.row].content
+        let nameToShow = chatMessagesArray[indexPath.row].senderName
+        let contentToShow = chatMessagesArray[indexPath.row].content
+        let cellToShow = "\(nameToShow): \(contentToShow)"
+        
+        cell.textLabel?.text = cellToShow
 
 
         return cell
