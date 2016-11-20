@@ -16,6 +16,8 @@ class OceansCollectionViewController: UICollectionViewController, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        
+        navigationItem.title = "Oceans"
     }
 
     // MARK: UICollectionViewDataSource

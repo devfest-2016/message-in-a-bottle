@@ -16,9 +16,12 @@ class OceanBottlesCollectionViewController: UICollectionViewController, UICollec
     var bottles = [Message]()
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView?.backgroundColor = UIColor.themeSand
+        self.collectionView?.backgroundColor = UIColor.themeTealBlue
+        
+        navigationItem.title = "Bottles in \(ocean.name)"
     }
     
     override func viewWillAppear(_ animated: Bool) {
