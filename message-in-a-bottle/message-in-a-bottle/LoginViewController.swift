@@ -143,6 +143,15 @@ extension LoginViewController {
         }
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "landingSegue" {
+            let destinationNavController = segue.destination as! UINavigationController
+            let targetController = destinationNavController.topViewController as! LandingViewController
+        }
+    }
+    
+    
     func cancelButtonAction(_ sender: UIButton) {
         
         animateForLogin()

@@ -14,11 +14,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let storyboard =  UIStoryboard(name: "Main", bundle: Bundle.main)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
         
-        // Override point for customization after application launch.
+        let currentUser = FIRAuth.auth()?.currentUser?.email
+        
+        if currentUser != nil
+        {
+            
+            self.window?.rootViewController = self.storyboard.instantiateViewController(withIdentifier: "UINavigationController")
+        }
+        else
+        {
+            self.window?.rootViewController = self.storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        }
+
+        
+        
+        
         return true
     }
 
