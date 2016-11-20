@@ -14,13 +14,15 @@ class ChatroomViewController: UIViewController {
     let textField = UITextField()
     let sendButton = UIButton()
     
+    var previousMessage = [ChatMessage]()
+    
     override func viewDidLoad() {
         
             //TableView
         
                 self.view.addSubview(tableView)
                 tableView.translatesAutoresizingMaskIntoConstraints = false
-                tableView.bottomAnchor.constraint(equalTo: textField.topAnchor).isActive = true
+//                tableView.bottomAnchor.constraint(equalTo: textField.topAnchor).isActive = true
                 tableView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1.0).isActive = true
                 tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
                 tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -45,7 +47,7 @@ class ChatroomViewController: UIViewController {
                 sendButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15).isActive = true
                 sendButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
                 sendButton.leftAnchor.constraint(equalTo: textField.rightAnchor).isActive = true
-                sendButton.topAnchor.constraint(equalTo: tableView.bottomAnchor).isActive = true
+//                sendButton.topAnchor.constraint(equalTo: tableView.bottomAnchor).isActive = true
 
     }
 

@@ -20,6 +20,7 @@ class Chatroom {
     var chatMessages = [ChatMessage]()
     var partner: User?
     var title: String?
+
     
     init(chatID: String, timestamp: Double, lastMessage: String, partnerName: String) {
         self.chatID = chatID
