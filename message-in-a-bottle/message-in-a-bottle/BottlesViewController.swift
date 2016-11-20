@@ -21,7 +21,7 @@ class BottlesViewController: UICollectionViewController, UICollectionViewDelegat
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.collectionView?.backgroundColor = UIColor.themeSand
         retrieveBottleMessages()
     }
     
