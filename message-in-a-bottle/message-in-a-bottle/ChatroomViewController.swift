@@ -17,6 +17,8 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
     
     var chatID = String()
     var chatMessagesArray = [ChatMessage]()
+    var messageCount = 0
+    
     
     override func viewDidLoad() {
 
@@ -63,14 +65,26 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
         sendButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         FirebaseMethods.retrieveChatMessages(chatID: chatID) { (chatMessages) in
             for chat in chatMessages {
                 self.chatMessagesArray.append(chat)
             }
-            self.tableView.reloadData()
+            self.messageCount = self.chatMessagesArray.count
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            self.reloadChatTableView()
         }
         
-
+    }
+    
+    
+    func reloadChatTableView() {
+        chatMessagesArray.sort { $0.timestamp < $1.timestamp }
     }
     
     
@@ -78,16 +92,8 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
         
         guard let userKey = FIRAuth.auth()?.currentUser?.uid else {return}
         FirebaseMethods.sendMessage(senderID: userKey, messageContent: textField.text!, chatID: chatID)
-        
+        reloadChatTableView()
     }
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,21 +103,12 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatMessageCell", for: indexPath)
         
-//        cell.textLabel?.text = chatMessagesArray[indexPath.row].content
+        cell.textLabel?.text = chatMessagesArray[indexPath.row].content
 
-        cell.textLabel?.text = "TEST"
+//        cell.textLabel?.text = "TEST"
         return cell
     }
     
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

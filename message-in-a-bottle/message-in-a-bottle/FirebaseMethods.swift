@@ -251,9 +251,7 @@ class FirebaseMethods {
         let chatRef = FIRDatabase.database().reference().child("chatMessages").child(chatID)
         var chatMessages = [ChatMessage]()
         
-        print("Chat Ref: \(chatRef)")
-        
-        chatRef.observeSingleEvent(of: .value, with: { (snapshot) in
+        chatRef.observe(.value, with: { (snapshot) in
             print("SNAPSHOT: \(snapshot.value)")
             guard let chatInfoRaw = snapshot.value as? [String:Any] else {return}
             print("CHAT INFO RAW: \(chatInfoRaw)")
