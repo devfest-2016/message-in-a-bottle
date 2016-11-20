@@ -30,6 +30,7 @@ class Chatroom {
         self.partnerName = partnerName
         self.title = "Chat with \(partnerName)"
     }
+
     
     func retrievePartner(with completion: @escaping ()->Void) {
         User.retrieveUser(with: chatID) { (user) in

@@ -27,18 +27,18 @@ class OceanBottleViewMsgsViewController: UIViewController {
 
     @IBAction func acceptButtonAction(_ sender: UIButton) {
         
-//        User.retrieveUser(with: (FIRAuth.auth()?.currentUser?.uid)!) { (user) in
-//            let userOne = user!
-//            
-//            User.retrieveUser(with: self.message.userUniqueKey, completion: { (user) in
-//                let userTwo = user!
-//                
-//                FirebaseMethods.createChatRoomForUsers(userOne: userOne, userTwo: userTwo)
-//                self.dismiss(animated: true, completion: {
-//                    
-//                })
-//            })
-//        }
+        User.retrieveUser(with: (FIRAuth.auth()?.currentUser?.uid)!) { (user) in
+            let userOne = user!
+            
+            User.retrieveUser(with: self.message.userUniqueKey, completion: { (user) in
+                let userTwo = user!
+                
+                FirebaseMethods.createChatRoomForUsers(userOne: userOne, userTwo: userTwo)
+                self.dismiss(animated: true, completion: {
+                    
+                })
+            })
+        }
         
     }
    
