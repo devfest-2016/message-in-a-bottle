@@ -19,8 +19,7 @@ class ChatCollectionViewCell: UICollectionViewCell {
         
         self.contentView.addSubview(chatWithLabel)
         chatWithLabel.text = "Chat with"
-        chatWithLabel.frame = CGRect(x: 0, y: 0, width: self.contentView.frame.width, height: self.contentView.frame.height * 0.25)
-        chatWithLabel.backgroundColor = UIColor.red
+        chatWithLabel.frame = CGRect(x: 0, y: 0, width: self.contentView.frame.width, height: self.contentView.frame.height * 0.25)gi
         chatWithLabel.textAlignment = .center
         chatWithLabel.font = UIFont(name: "HelveticaNeue-Light", size: 13)
         
