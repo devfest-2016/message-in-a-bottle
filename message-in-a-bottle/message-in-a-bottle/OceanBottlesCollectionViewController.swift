@@ -18,7 +18,7 @@ class OceanBottlesCollectionViewController: UICollectionViewController, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.collectionView?.backgroundColor = UIColor.cyan
 
     }
     
