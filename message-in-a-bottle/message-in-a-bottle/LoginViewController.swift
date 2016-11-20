@@ -35,7 +35,11 @@ struct NewUserViewPosition {
 }
 
 class LoginViewController: UIViewController {
-
+    
+    var appTitleLabel1: UILabel!
+    var appTitleLabel2: UILabel!
+    var appTitleLabel3: UILabel!
+    
     var emailTextField: UITextField!
     var passwordTextField: UITextField!
     var firstnameTextField: UITextField!
@@ -54,11 +58,24 @@ class LoginViewController: UIViewController {
         self.view.backgroundColor = UIColor.themeBrightBlue
         loadViews()
         setPositions()
-        emailTextField.becomeFirstResponder()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.resignFirstResponder()
+        let touchLocation = touches.first?.location(in: self.view)
+        
+        if emailTextField.bounds.contains(touchLocation!) {
+            emailTextField.becomeFirstResponder()
+        } else if passwordTextField.bounds.contains(touchLocation!){
+            passwordTextField.becomeFirstResponder()
+        } else if firstnameTextField.bounds.contains(touchLocation!){
+            firstnameTextField.becomeFirstResponder()
+        } else if lastnameTextField.bounds.contains(touchLocation!){
+            lastnameTextField.becomeFirstResponder()
+        } else {
+            self.view.endEditing(true)
+        }
+        
+        
     }
     
     func animateSignupEntry(view: UIView) {
@@ -319,6 +336,27 @@ extension LoginViewController {
         
         let borderWidth: CGFloat = 2
         let borderColor = UIColor.themeDarkBlue.cgColor
+        
+        appTitleLabel1 = UILabel(frame: CGRect(x: self.view.frame.size.width * 0.25, y: self.view.frame.size.height * 0.02, width: self.view.frame.size.width * 0.5, height: self.view.frame.size.height * 0.05))
+        appTitleLabel1.textColor = UIColor.black
+        appTitleLabel1.text = "Message"
+        appTitleLabel1.font = UIFont(name: "AvenirNext-Heavy", size: 20)
+        appTitleLabel1.textAlignment = .center
+        self.view.addSubview(appTitleLabel1)
+        
+        appTitleLabel2 = UILabel(frame: CGRect(x: self.view.frame.size.width * 0.25, y: self.view.frame.size.height * 0.07, width: self.view.frame.size.width * 0.5, height: self.view.frame.size.height * 0.04))
+        appTitleLabel2.textColor = UIColor.black
+        appTitleLabel2.text = "In A"
+        appTitleLabel2.font = UIFont(name: "AvenirNext-Heavy", size: 12)
+        appTitleLabel2.textAlignment = .center
+        self.view.addSubview(appTitleLabel2)
+        
+        appTitleLabel3 = UILabel(frame: CGRect(x: self.view.frame.size.width * 0.25, y: self.view.frame.size.height * 0.11, width: self.view.frame.size.width * 0.5, height: self.view.frame.size.height * 0.05))
+        appTitleLabel3.textColor = UIColor.black
+        appTitleLabel3.text = "Bottle"
+        appTitleLabel3.font = UIFont(name: "AvenirNext-Heavy", size: 20)
+        appTitleLabel3.textAlignment = .center
+        self.view.addSubview(appTitleLabel3)
         
         firstnameTextField = UITextField(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width * 0.6, height: self.view.frame.size.height * 0.06))
         firstnameTextField.layer.cornerRadius = 4
