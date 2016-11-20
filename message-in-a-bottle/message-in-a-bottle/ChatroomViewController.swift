@@ -89,10 +89,8 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
         print("Chat Ref: \(chatRef)")
         
         chatRef.observe(.childAdded, with: { (snapshot) in
-            print("OBSERVING INSIDE")
             guard let chatInfoRaw = snapshot.value as? [String:Any] else {return}
             let messageID = snapshot.key
-            print("CHAT INFO RAW: \(chatInfoRaw)")
             
             guard let senderName = chatInfoRaw["senderName"] as? String,
                 let senderUniqueKey = chatInfoRaw["senderUniqueKey"] as? String,
@@ -102,9 +100,7 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
                 else {return}
 
             let chatMessageToAppend = ChatMessage(senderName: senderName, messageID: messageID, senderUniqueKey: senderUniqueKey, content: content, timestamp: timestamp)
-            print("CHAT TO APPEND: \(chatMessageToAppend)\n\n\n")
                 self.chatMessagesArray.append(chatMessageToAppend)
-                print("COUNT: \(self.chatMessagesArray.count)\n\n\n")
                 self.tableView.reloadData()
                 
             })
