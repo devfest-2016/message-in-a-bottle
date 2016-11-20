@@ -71,4 +71,9 @@ class OceansCollectionViewController: UICollectionViewController, UICollectionVi
         backgroundImage.addSubview(blurEffectView)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dest = segue.destination as? OceanBottlesCollectionViewController
+        
+        dest?.ocean = Ocean.init(name: "Technology")
+    }
 }

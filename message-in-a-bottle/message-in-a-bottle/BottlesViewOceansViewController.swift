@@ -17,8 +17,7 @@ class BottlesViewOceansViewController: UICollectionViewController, UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-//        FirebaseMethods.createNewBottle(uniqueID: (FIRAuth.auth()?.currentUser?.uid)!, oceanID: "Tech", title: "Hello World", messageContent: "Are we human? Or are we dancer.")
-        
+
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
