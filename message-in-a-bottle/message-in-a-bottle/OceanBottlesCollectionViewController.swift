@@ -24,6 +24,7 @@ class OceanBottlesCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("Retrieving info for \(ocean.name) ocean")
         
         FirebaseMethods.retrieveMessages(for: ocean) { (messages) in
             self.bottles = messages
