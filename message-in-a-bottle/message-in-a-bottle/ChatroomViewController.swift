@@ -97,9 +97,8 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatMessageCell", for: indexPath)
         
-//        cell.textLabel?.text = chatMessagesArray[indexPath.row].content
+        cell.textLabel?.text = chatMessagesArray[indexPath.row].content
 
-        cell.textLabel?.text = "TEST"
         return cell
     }
     
