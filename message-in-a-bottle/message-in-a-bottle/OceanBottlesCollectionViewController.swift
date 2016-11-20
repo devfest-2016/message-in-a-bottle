@@ -26,6 +26,9 @@ class OceanBottlesCollectionViewController: UICollectionViewController {
         super.viewWillAppear(animated)
         
         FirebaseMethods.retrieveMessages(for: ocean) { (messages) in
+            print("\n\n\n\n\n")
+            dump(messages)
+            print("\n\n\n\n\n")
             self.bottles = messages
             self.collectionView?.reloadData()
         }

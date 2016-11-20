@@ -188,25 +188,29 @@ class FirebaseMethods {
     //MARK: - Retrieve Messages for Ocean
     
     static func retrieveMessages(for ocean: Ocean, completion: @escaping ([Message]) -> Void) {
+        
         let oceanRef = FIRDatabase.database().reference().child("bottles").child(ocean.name)
         
+        
         oceanRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            
             let oceanInfoRaw = snapshot.value as? [String:Any]
             var messages = [Message]()
             
-            guard let oceanInfo = oceanInfoRaw else { return }
+            guard let oceanInfo = oceanInfoRaw else { print("FAILURE: Cannot unwrap oceanInfoRaw"); return }
             
             for (messageUniqueID, message) in oceanInfo {
+                
                 let messageInfoRaw = message as? [String:Any]
                 
                 guard
                     let messageInfo = messageInfoRaw as? [String:String],
                     let title = messageInfo["title"],
-                    let body = messageInfo["body"],
-                    let userUniqueKey = messageInfo["userUniqueKey"],
-                    let timestampString = messageInfo["title"],
+                    let body = messageInfo["messageContent"],
+                    let userUniqueKey = messageInfo["uniqueKey"],
+                    let timestampString = messageInfo["timestamp"],
                     let timestamp = Double(timestampString)
-                    else { return }
+                    else { print("FAILURE: Cannot unwrap message info");return }
 
                 
                 let message = Message(messageUniqueID: messageUniqueID, title: title, body: body, userUniqueKey: userUniqueKey, timestamp: timestamp)
