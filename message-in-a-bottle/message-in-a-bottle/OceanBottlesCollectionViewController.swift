@@ -54,6 +54,7 @@ class OceanBottlesCollectionViewController: UICollectionViewController {
         cell.loadViews()
         
         cell.bottleLabel.text = "ello World"
+        cell.backgroundColor = UIColor.blue
         
         return cell
     }
