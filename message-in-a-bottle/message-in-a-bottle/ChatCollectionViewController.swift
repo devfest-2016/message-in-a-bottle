@@ -20,7 +20,7 @@ class ChatCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
 
         
-//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        self.collectionView!.register(UIColvartionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         print("COLLECION VIEW LOADED \n\n\n")
         
@@ -80,6 +80,7 @@ class ChatCollectionViewController: UICollectionViewController {
             if let indexPaths = collectionView?.indexPathsForSelectedItems {
                 for indexPath in indexPaths {
                     dest.chatID = chatRoomArray[indexPath.item].chatID
+                    dest.chatRef = FIRDatabase.database().reference().child("chatMessages").child(dest.chatID)
                 }
             }
         }

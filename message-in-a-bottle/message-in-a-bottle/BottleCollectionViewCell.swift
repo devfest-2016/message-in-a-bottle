@@ -18,6 +18,11 @@ class BottleCollectionViewCell: UICollectionViewCell {
     
     func loadViews() {
         
+        self.layer.cornerRadius = 10
+        self.layer.borderWidth = 5
+        self.layer.borderColor = UIColor.themeDarkBlue.cgColor
+        self.backgroundColor = UIColor.themeBrightBlue
+        
         for view in contentView.subviews {
             view.removeFromSuperview()
         }
