@@ -254,8 +254,8 @@ class FirebaseMethods {
         
         print("Chat Ref: \(chatRef)")
         
-        chatRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            print("SNAPSHOT: \(snapshot.value)")
+        chatRef.observe(.childAdded, with: { (snapshot) in
+            print("OBSERVING INSIDE")
             guard let chatInfoRaw = snapshot.value as? [String:Any] else {return}
             print("CHAT INFO RAW: \(chatInfoRaw)")
 
@@ -284,8 +284,9 @@ class FirebaseMethods {
         let chatRef = FIRDatabase.database().reference().child("users").child(userID).child("chatroom")
         
         let chatroomRef = FIRDatabase.database().reference().child("chatroom")
-        
+        print("CHAT ROOM CALLED")
         chatRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            print("INSIDE OBSERVE CONT")
             var chatRoomArray = [Chatroom]()
             guard let chatroomRaw = snapshot.value as? [String:Any] else {return}
             
