@@ -19,10 +19,7 @@ class ChatCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
 //        self.collectionView!.register(UIColvartionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        print("COLLECION VIEW LOADED \n\n\n")
         
         
         FirebaseMethods.retrieveChatRooms(for: (FIRAuth.auth()?.currentUser!.uid)!) { (chatrooms) in
@@ -36,21 +33,6 @@ class ChatCollectionViewController: UICollectionViewController {
         }
         
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using [segue destinationViewController].
-     // Pass the selected object to the new view controller.
-     }
-     */
     
     // MARK: UICollectionViewDataSource
     

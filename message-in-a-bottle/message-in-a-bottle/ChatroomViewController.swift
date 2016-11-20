@@ -19,7 +19,10 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
     
     var chatID = String()
     var chatMessagesArray = [ChatMessage]()
+    
+
     var recipientName = String()
+
     
     var chatRef = FIRDatabase.database().reference()
     
@@ -71,18 +74,6 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
         sendButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.30).isActive = true
         sendButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-//        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(readFireBaseData), userInfo: nil, repeats: true)
-    }
-    
-    func readFireBaseData() {
-        FirebaseMethods.retrieveChatMessages(chatID: chatID) { (chatMessages) in
-            for chat in chatMessages {
-                self.chatMessagesArray.append(chat)
-//            self.tableView.insertRows(at: [IndexPath(row: self.chatMessagesArray.count-1, section: 0)], with: .automatic)
-            }
-            self.tableView.reloadData()
-            
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -102,27 +93,26 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
                 let timestampString = chatInfoRaw["timestamp"] as? String,
                 let timestamp = Double(timestampString)
                 else {return}
-
+            
             let chatMessageToAppend = ChatMessage(senderName: senderName, messageID: messageID, senderUniqueKey: senderUniqueKey, content: content, timestamp: timestamp)
-                self.chatMessagesArray.append(chatMessageToAppend)
-                self.tableView.reloadData()
-                
-            })
-        }
+            
+            print("CHAT TO APPEND: \(chatMessageToAppend)\n\n\n")
+            self.chatMessagesArray.append(chatMessageToAppend)
+            print("COUNT: \(self.chatMessagesArray.count)\n\n\n")
+            self.tableView.reloadData()
+            
+        })
+    }
 
-    
+
+
     func sendChat(sender: UIButton!) {
         
         guard let userKey = FIRAuth.auth()?.currentUser?.uid else {return}
         FirebaseMethods.sendMessage(senderID: userKey, messageContent: textField.text!, chatID: chatID)
+
         textField.text = ""
         
-    }
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     
@@ -138,7 +128,7 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
         cell.displayNameLabel.text = "\(senderNameInitials): "
         cell.messageContentLabel.text = chatMessagesArray[indexPath.row].content
         
-        
+
         return cell
     }
     
@@ -162,15 +152,6 @@ class ChatroomViewController: UIViewController, UITableViewDelegate, UITableView
         return initialString
     }
     
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

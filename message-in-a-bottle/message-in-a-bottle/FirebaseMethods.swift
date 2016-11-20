@@ -9,18 +9,21 @@ class FirebaseMethods {
     
     //MARK: - Sign Up & Log In Funcs
     
-    static func signInButton(email: String, password: String) {
+    static func signInButton(email: String, password: String, completion: @escaping (Bool) -> () ) {
         
         FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
             if let error = error {
                 print(error.localizedDescription)
-                
+                completion(false)
+            } else {
+                completion(true)
             }
+            
         }
     }
     
     
-    static func signUpButton(email: String, password: String, firstName: String, lastName: String) {
+    static func signUpButton(email: String, password: String, firstName: String, lastName: String, completion: @escaping (Bool) -> () ) {
         
         let ref = FIRDatabase.database().reference().root
         
@@ -31,8 +34,12 @@ class FirebaseMethods {
                     
                     ref.child("users").child((user?.uid)!).setValue(userDictionary)
                     
+                    completion(true)
+                    
                 } else {
                     print(error?.localizedDescription ?? "")
+                    
+                    completion(false)
                 }
                 
                 
@@ -102,8 +109,10 @@ class FirebaseMethods {
                 let title = messageInfo["title"] as? String,
 
                 let body = messageInfo["messageContent"] as? String,
+
                 let timestampString = messageInfo["timestamp"] as? String,
                 let timestamp = Double(timestampString)
+
                 else { print("FAILURE: Data unavailable in messageInfo");return }
                 
 
@@ -248,6 +257,7 @@ class FirebaseMethods {
     }
     
     
+
     static func retrieveChatRooms(for userID: String, with completion: @escaping ([Chatroom]) -> Void) {
         let chatRef = FIRDatabase.database().reference().child("users").child(userID).child("chatroom")
         
