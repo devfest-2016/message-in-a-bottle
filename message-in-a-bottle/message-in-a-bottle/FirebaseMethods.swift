@@ -64,24 +64,19 @@ class FirebaseMethods {
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in
             var userMessages = [Message]()
             
-            print("PROGRESS: retrieving from \(userRef)")
             
             guard let messagesRaw = snapshot.value else { print("FAILURE: snapshot.value has no value for specific user messages"); return }
             
-            print("PROGRESS: messagesRaw: \(messagesRaw)")
             
             guard let messages = messagesRaw as? [String:Any] else { print("FAILURE: messagesRaw cannot be converted to messages"); return }
             
-            print("FINDME: \(messages.count)")
             
             for message in messages {
                 let messageID = message.key
-                print("FINDME: \(messageID)")
                 guard let oceanID = message.value as? String else { print("FAILURE: message.value has no value"); return }
                 
                 FirebaseMethods.retrieveBottle(messageID: messageID, oceanID: oceanID, completion: { (message) in
                     userMessages.append(message)
-                    print("FINDME: \(userMessages.count)>\(messages.count)")
                     if userMessages.count == messages.count {
                         completion(userMessages)
                     }
@@ -92,19 +87,15 @@ class FirebaseMethods {
         
     }
     private static func retrieveBottle(messageID: String, oceanID: String, completion: @escaping (Message)->Void){
-        print("FINDME: \(messageID) function")
         
         let bottleRef = FIRDatabase.database().reference().child("bottles").child(oceanID).child(messageID)
         
-        print("FINDME: \(bottleRef)")
         
         print(bottleRef)
         bottleRef.observeSingleEvent(of: .value, with: { (snapshot) in
 
             guard let messageInfo = snapshot.value as? [String: Any] else { print("FAILURE: snapshot.value has no value for ocean value \(oceanID)"); return }
-        
             print("FINDME: observing \(messageID)")
-
             
             guard
                 let userUniqueKey = messageInfo["uniqueKey"] as? String,
@@ -118,7 +109,6 @@ class FirebaseMethods {
             
             let message = Message(messageUniqueID: messageID, title: title, body: body, userUniqueKey: userUniqueKey, timestamp: timestamp)
             message.setUser {
-                print("FINDME: adding user \(messageID)")
                 completion(message)
             }
         })
