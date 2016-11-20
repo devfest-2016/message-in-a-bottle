@@ -18,8 +18,7 @@ class OceanBottlesCollectionViewController: UICollectionViewController, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
+        self.collectionView?.backgroundColor = UIColor.themeSand
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,9 +50,6 @@ class OceanBottlesCollectionViewController: UICollectionViewController, UICollec
         cell.backgroundColor = UIColor.cyan
         cell.loadViews()
         cell.bottleLabel.text = bottles[indexPath.row].title
-        cell.bgImageView.image = UIImage(named: "bgwave")
-        cell.fgImageView.image = UIImage(named: "fgwave")
-        cell.bottleImageView.image = UIImage(named: "bottle")
         
         return cell
     }

@@ -498,6 +498,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="VTs-lB-7Mx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.97563976049423218" green="0.92924422025680542" blue="0.73471325635910034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
