@@ -68,7 +68,10 @@ class ChatCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ChatCollectionViewCell
         
-        cell.chatTitleLabel.text = chatRoomArray[indexPath.item].title
+    
+        
+        cell.chatParticipantLabel.text = chatRoomArray[indexPath.item].partnerName
+        cell.setUpViews()
         
         return cell
     }
