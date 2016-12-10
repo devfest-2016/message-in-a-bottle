@@ -1,0 +1,543 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1B0BBE181DE0980E0018E274 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0BBE171DE0980E0018E274 /* AppDelegate.swift */; };
+		1B0BBE1D1DE0980E0018E274 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B0BBE1B1DE0980E0018E274 /* Main.storyboard */; };
+		1B0BBE1F1DE0980E0018E274 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B0BBE1E1DE0980E0018E274 /* Assets.xcassets */; };
+		1B0BBE221DE0980E0018E274 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B0BBE201DE0980E0018E274 /* LaunchScreen.storyboard */; };
+		1B0BBE2A1DE0EA720018E274 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0BBE291DE0EA720018E274 /* Date.swift */; };
+		1B12092A1DE1FD31003E306E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1209291DE1FD31003E306E /* Theme.swift */; };
+		B50B831D1DE0A19D0099A0AF /* FirebaseMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B831C1DE0A19D0099A0AF /* FirebaseMethods.swift */; };
+		B50B831F1DE0A1EA0099A0AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B50B831E1DE0A1EA0099A0AF /* GoogleService-Info.plist */; };
+		B50B83211DE0A1FE0099A0AF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B83201DE0A1FE0099A0AF /* User.swift */; };
+		B50B83231DE0A22C0099A0AF /* Ocean.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B83221DE0A22C0099A0AF /* Ocean.swift */; };
+		B50B83251DE0A2430099A0AF /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B83241DE0A2430099A0AF /* Messages.swift */; };
+		B50B83271DE0D9D00099A0AF /* ChatCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B83261DE0D9D00099A0AF /* ChatCollectionViewController.swift */; };
+		B50B832C1DE0ECA10099A0AF /* ChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B832B1DE0ECA10099A0AF /* ChatCollectionViewCell.swift */; };
+		B50B832E1DE0F9D10099A0AF /* ChatroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B832D1DE0F9D10099A0AF /* ChatroomViewController.swift */; };
+		B50D0A1B1DE21C8100BE5115 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50D0A1A1DE21C8100BE5115 /* ChatTableViewCell.swift */; };
+		B5D2DDA71DE0A625001F2CCE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DDA61DE0A625001F2CCE /* LoginViewController.swift */; };
+		B5D2DDA91DE0A73F001F2CCE /* OceansCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DDA81DE0A73F001F2CCE /* OceansCollectionViewController.swift */; };
+		B5D2DDAB1DE0A9D5001F2CCE /* OceanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DDAA1DE0A9D5001F2CCE /* OceanCollectionViewCell.swift */; };
+		B5D2DDAD1DE0A9DE001F2CCE /* BottleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DDAC1DE0A9DE001F2CCE /* BottleCollectionViewCell.swift */; };
+		B5D2DDB21DE0AE9B001F2CCE /* Chatroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DDB11DE0AE9B001F2CCE /* Chatroom.swift */; };
+		B5D2DDB41DE0AEE2001F2CCE /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DDB31DE0AEE2001F2CCE /* ChatMessage.swift */; };
+		B5D2DDB61DE0B519001F2CCE /* OceanBottlesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DDB51DE0B519001F2CCE /* OceanBottlesCollectionViewController.swift */; };
+		B5D2DDBE1DE1EEFF001F2CCE /* OceanBottleViewMsgsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DDBD1DE1EEFF001F2CCE /* OceanBottleViewMsgsViewController.swift */; };
+		E4365B8A1DE09F39006952D2 /* BottlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4365B891DE09F39006952D2 /* BottlesViewController.swift */; };
+		E4365B8C1DE0A002006952D2 /* BottlesViewOceansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4365B8B1DE0A002006952D2 /* BottlesViewOceansViewController.swift */; };
+		E4365B8E1DE0A025006952D2 /* BottlesAddMsgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4365B8D1DE0A025006952D2 /* BottlesAddMsgViewController.swift */; };
+		E4365B901DE0A033006952D2 /* BottlesViewMsgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4365B8F1DE0A033006952D2 /* BottlesViewMsgViewController.swift */; };
+		E446AE141DE09D4E0084A325 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E446AE131DE09D4E0084A325 /* LandingViewController.swift */; };
+		E48955781DE0D95E0006F996 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48955771DE0D95E0006F996 /* Icons.swift */; };
+		E489557D1DE0DD5F0006F996 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = E489557C1DE0DD5F0006F996 /* FontAwesome.otf */; };
+		F483EE138C22861AF2A554D5 /* Pods_message_in_a_bottle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B67EFF4C0C2B8B90627619E1 /* Pods_message_in_a_bottle.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1B0BBE141DE0980E0018E274 /* message-in-a-bottle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "message-in-a-bottle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B0BBE171DE0980E0018E274 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1B0BBE1C1DE0980E0018E274 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1B0BBE1E1DE0980E0018E274 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1B0BBE211DE0980E0018E274 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1B0BBE231DE0980E0018E274 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B0BBE291DE0EA720018E274 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		1B1209291DE1FD31003E306E /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		2E7740879161FE6E5F218914 /* Pods-message-in-a-bottle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-message-in-a-bottle.release.xcconfig"; path = "Pods/Target Support Files/Pods-message-in-a-bottle/Pods-message-in-a-bottle.release.xcconfig"; sourceTree = "<group>"; };
+		B50B831C1DE0A19D0099A0AF /* FirebaseMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseMethods.swift; sourceTree = "<group>"; };
+		B50B831E1DE0A1EA0099A0AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B50B83201DE0A1FE0099A0AF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B50B83221DE0A22C0099A0AF /* Ocean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ocean.swift; sourceTree = "<group>"; };
+		B50B83241DE0A2430099A0AF /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		B50B83261DE0D9D00099A0AF /* ChatCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCollectionViewController.swift; sourceTree = "<group>"; };
+		B50B832B1DE0ECA10099A0AF /* ChatCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCollectionViewCell.swift; sourceTree = "<group>"; };
+		B50B832D1DE0F9D10099A0AF /* ChatroomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatroomViewController.swift; sourceTree = "<group>"; };
+		B50D0A1A1DE21C8100BE5115 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		B5D2DDA61DE0A625001F2CCE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B5D2DDA81DE0A73F001F2CCE /* OceansCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OceansCollectionViewController.swift; sourceTree = "<group>"; };
+		B5D2DDAA1DE0A9D5001F2CCE /* OceanCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OceanCollectionViewCell.swift; sourceTree = "<group>"; };
+		B5D2DDAC1DE0A9DE001F2CCE /* BottleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottleCollectionViewCell.swift; sourceTree = "<group>"; };
+		B5D2DDB11DE0AE9B001F2CCE /* Chatroom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chatroom.swift; sourceTree = "<group>"; };
+		B5D2DDB31DE0AEE2001F2CCE /* ChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		B5D2DDB51DE0B519001F2CCE /* OceanBottlesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OceanBottlesCollectionViewController.swift; sourceTree = "<group>"; };
+		B5D2DDBD1DE1EEFF001F2CCE /* OceanBottleViewMsgsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OceanBottleViewMsgsViewController.swift; sourceTree = "<group>"; };
+		B67EFF4C0C2B8B90627619E1 /* Pods_message_in_a_bottle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_message_in_a_bottle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E063B8AA5300404125CA2557 /* Pods-message-in-a-bottle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-message-in-a-bottle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-message-in-a-bottle/Pods-message-in-a-bottle.debug.xcconfig"; sourceTree = "<group>"; };
+		E4365B891DE09F39006952D2 /* BottlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottlesViewController.swift; sourceTree = "<group>"; };
+		E4365B8B1DE0A002006952D2 /* BottlesViewOceansViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottlesViewOceansViewController.swift; sourceTree = "<group>"; };
+		E4365B8D1DE0A025006952D2 /* BottlesAddMsgViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottlesAddMsgViewController.swift; sourceTree = "<group>"; };
+		E4365B8F1DE0A033006952D2 /* BottlesViewMsgViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottlesViewMsgViewController.swift; sourceTree = "<group>"; };
+		E446AE131DE09D4E0084A325 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		E48955771DE0D95E0006F996 /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		E489557C1DE0DD5F0006F996 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1B0BBE111DE0980E0018E274 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F483EE138C22861AF2A554D5 /* Pods_message_in_a_bottle.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1B0BBE0B1DE0980E0018E274 = {
+			isa = PBXGroup;
+			children = (
+				1B0BBE161DE0980E0018E274 /* message-in-a-bottle */,
+				1B0BBE151DE0980E0018E274 /* Products */,
+				64B046ADDC377F6022D884F5 /* Pods */,
+				C785BF993170D592EB6B781B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1B0BBE151DE0980E0018E274 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1B0BBE141DE0980E0018E274 /* message-in-a-bottle.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1B0BBE161DE0980E0018E274 /* message-in-a-bottle */ = {
+			isa = PBXGroup;
+			children = (
+				E446AE121DE09C7B0084A325 /* ViewControllers */,
+				1B0BBE171DE0980E0018E274 /* AppDelegate.swift */,
+				B5D2DDB01DE0AE43001F2CCE /* DataStructs */,
+				B50B831C1DE0A19D0099A0AF /* FirebaseMethods.swift */,
+				B50B831E1DE0A1EA0099A0AF /* GoogleService-Info.plist */,
+				1B0BBE1B1DE0980E0018E274 /* Main.storyboard */,
+				E48955791DE0D9B40006F996 /* Assets */,
+				1B0BBE201DE0980E0018E274 /* LaunchScreen.storyboard */,
+				1B0BBE231DE0980E0018E274 /* Info.plist */,
+				1B0BBE291DE0EA720018E274 /* Date.swift */,
+				1B1209291DE1FD31003E306E /* Theme.swift */,
+			);
+			path = "message-in-a-bottle";
+			sourceTree = "<group>";
+		};
+		64B046ADDC377F6022D884F5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E063B8AA5300404125CA2557 /* Pods-message-in-a-bottle.debug.xcconfig */,
+				2E7740879161FE6E5F218914 /* Pods-message-in-a-bottle.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B50B83281DE0D9D90099A0AF /* ChatVC */ = {
+			isa = PBXGroup;
+			children = (
+				B50B83261DE0D9D00099A0AF /* ChatCollectionViewController.swift */,
+				B50B832B1DE0ECA10099A0AF /* ChatCollectionViewCell.swift */,
+			);
+			name = ChatVC;
+			sourceTree = "<group>";
+		};
+		B50B832F1DE0F9D90099A0AF /* ChatroomVC */ = {
+			isa = PBXGroup;
+			children = (
+				B50B832D1DE0F9D10099A0AF /* ChatroomViewController.swift */,
+				B50D0A1A1DE21C8100BE5115 /* ChatTableViewCell.swift */,
+			);
+			name = ChatroomVC;
+			sourceTree = "<group>";
+		};
+		B5D2DDB01DE0AE43001F2CCE /* DataStructs */ = {
+			isa = PBXGroup;
+			children = (
+				B50B83201DE0A1FE0099A0AF /* User.swift */,
+				B50B83221DE0A22C0099A0AF /* Ocean.swift */,
+				B50B83241DE0A2430099A0AF /* Messages.swift */,
+				B5D2DDB11DE0AE9B001F2CCE /* Chatroom.swift */,
+				B5D2DDB31DE0AEE2001F2CCE /* ChatMessage.swift */,
+			);
+			name = DataStructs;
+			sourceTree = "<group>";
+		};
+		C785BF993170D592EB6B781B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B67EFF4C0C2B8B90627619E1 /* Pods_message_in_a_bottle.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E4365B911DE0A11E006952D2 /* BottlesVC */ = {
+			isa = PBXGroup;
+			children = (
+				E4365B891DE09F39006952D2 /* BottlesViewController.swift */,
+				E4365B8B1DE0A002006952D2 /* BottlesViewOceansViewController.swift */,
+				E4365B8D1DE0A025006952D2 /* BottlesAddMsgViewController.swift */,
+				E4365B8F1DE0A033006952D2 /* BottlesViewMsgViewController.swift */,
+				B5D2DDAC1DE0A9DE001F2CCE /* BottleCollectionViewCell.swift */,
+			);
+			name = BottlesVC;
+			sourceTree = "<group>";
+		};
+		E4365B921DE0A1CF006952D2 /* OceansVC */ = {
+			isa = PBXGroup;
+			children = (
+				B5D2DDBD1DE1EEFF001F2CCE /* OceanBottleViewMsgsViewController.swift */,
+				B5D2DDB51DE0B519001F2CCE /* OceanBottlesCollectionViewController.swift */,
+				B5D2DDAA1DE0A9D5001F2CCE /* OceanCollectionViewCell.swift */,
+				B5D2DDA81DE0A73F001F2CCE /* OceansCollectionViewController.swift */,
+			);
+			name = OceansVC;
+			sourceTree = "<group>";
+		};
+		E446AE121DE09C7B0084A325 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E4365B911DE0A11E006952D2 /* BottlesVC */,
+				E4365B921DE0A1CF006952D2 /* OceansVC */,
+				E446AE131DE09D4E0084A325 /* LandingViewController.swift */,
+				B5D2DDA61DE0A625001F2CCE /* LoginViewController.swift */,
+				B50B832F1DE0F9D90099A0AF /* ChatroomVC */,
+				B50B83281DE0D9D90099A0AF /* ChatVC */,
+				E48955771DE0D95E0006F996 /* Icons.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E48955791DE0D9B40006F996 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E489557C1DE0DD5F0006F996 /* FontAwesome.otf */,
+				1B0BBE1E1DE0980E0018E274 /* Assets.xcassets */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1B0BBE131DE0980E0018E274 /* message-in-a-bottle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1B0BBE261DE0980E0018E274 /* Build configuration list for PBXNativeTarget "message-in-a-bottle" */;
+			buildPhases = (
+				EF9D414897A96D4E6876A950 /* [CP] Check Pods Manifest.lock */,
+				1B0BBE101DE0980E0018E274 /* Sources */,
+				1B0BBE111DE0980E0018E274 /* Frameworks */,
+				1B0BBE121DE0980E0018E274 /* Resources */,
+				20408580B57192F8963012C3 /* [CP] Embed Pods Frameworks */,
+				D564DE9C6FA77ABF42505366 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "message-in-a-bottle";
+			productName = "message-in-a-bottle";
+			productReference = 1B0BBE141DE0980E0018E274 /* message-in-a-bottle.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1B0BBE0C1DE0980E0018E274 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Flatiron School";
+				TargetAttributes = {
+					1B0BBE131DE0980E0018E274 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = RC52CQTKVZ;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 1B0BBE0F1DE0980E0018E274 /* Build configuration list for PBXProject "message-in-a-bottle" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1B0BBE0B1DE0980E0018E274;
+			productRefGroup = 1B0BBE151DE0980E0018E274 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1B0BBE131DE0980E0018E274 /* message-in-a-bottle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1B0BBE121DE0980E0018E274 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B0BBE221DE0980E0018E274 /* LaunchScreen.storyboard in Resources */,
+				E489557D1DE0DD5F0006F996 /* FontAwesome.otf in Resources */,
+				B50B831F1DE0A1EA0099A0AF /* GoogleService-Info.plist in Resources */,
+				1B0BBE1F1DE0980E0018E274 /* Assets.xcassets in Resources */,
+				1B0BBE1D1DE0980E0018E274 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20408580B57192F8963012C3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-message-in-a-bottle/Pods-message-in-a-bottle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D564DE9C6FA77ABF42505366 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-message-in-a-bottle/Pods-message-in-a-bottle-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF9D414897A96D4E6876A950 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1B0BBE101DE0980E0018E274 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B50B83211DE0A1FE0099A0AF /* User.swift in Sources */,
+				B5D2DDB41DE0AEE2001F2CCE /* ChatMessage.swift in Sources */,
+				B50B832C1DE0ECA10099A0AF /* ChatCollectionViewCell.swift in Sources */,
+				B50B83251DE0A2430099A0AF /* Messages.swift in Sources */,
+				B50B83231DE0A22C0099A0AF /* Ocean.swift in Sources */,
+				B50B832E1DE0F9D10099A0AF /* ChatroomViewController.swift in Sources */,
+				B5D2DDA91DE0A73F001F2CCE /* OceansCollectionViewController.swift in Sources */,
+				B50D0A1B1DE21C8100BE5115 /* ChatTableViewCell.swift in Sources */,
+				B5D2DDBE1DE1EEFF001F2CCE /* OceanBottleViewMsgsViewController.swift in Sources */,
+				B50B831D1DE0A19D0099A0AF /* FirebaseMethods.swift in Sources */,
+				1B12092A1DE1FD31003E306E /* Theme.swift in Sources */,
+				B50B83271DE0D9D00099A0AF /* ChatCollectionViewController.swift in Sources */,
+				E446AE141DE09D4E0084A325 /* LandingViewController.swift in Sources */,
+				B5D2DDB21DE0AE9B001F2CCE /* Chatroom.swift in Sources */,
+				E4365B8E1DE0A025006952D2 /* BottlesAddMsgViewController.swift in Sources */,
+				E4365B901DE0A033006952D2 /* BottlesViewMsgViewController.swift in Sources */,
+				B5D2DDB61DE0B519001F2CCE /* OceanBottlesCollectionViewController.swift in Sources */,
+				E4365B8C1DE0A002006952D2 /* BottlesViewOceansViewController.swift in Sources */,
+				E4365B8A1DE09F39006952D2 /* BottlesViewController.swift in Sources */,
+				B5D2DDAB1DE0A9D5001F2CCE /* OceanCollectionViewCell.swift in Sources */,
+				E48955781DE0D95E0006F996 /* Icons.swift in Sources */,
+				1B0BBE181DE0980E0018E274 /* AppDelegate.swift in Sources */,
+				1B0BBE2A1DE0EA720018E274 /* Date.swift in Sources */,
+				B5D2DDAD1DE0A9DE001F2CCE /* BottleCollectionViewCell.swift in Sources */,
+				B5D2DDA71DE0A625001F2CCE /* LoginViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1B0BBE1B1DE0980E0018E274 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1B0BBE1C1DE0980E0018E274 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1B0BBE201DE0980E0018E274 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1B0BBE211DE0980E0018E274 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1B0BBE241DE0980E0018E274 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1B0BBE251DE0980E0018E274 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1B0BBE271DE0980E0018E274 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E063B8AA5300404125CA2557 /* Pods-message-in-a-bottle.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RC52CQTKVZ;
+				INFOPLIST_FILE = "message-in-a-bottle/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flatiron.message-in-a-bottle";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		1B0BBE281DE0980E0018E274 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E7740879161FE6E5F218914 /* Pods-message-in-a-bottle.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RC52CQTKVZ;
+				INFOPLIST_FILE = "message-in-a-bottle/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flatiron.message-in-a-bottle";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1B0BBE0F1DE0980E0018E274 /* Build configuration list for PBXProject "message-in-a-bottle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B0BBE241DE0980E0018E274 /* Debug */,
+				1B0BBE251DE0980E0018E274 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1B0BBE261DE0980E0018E274 /* Build configuration list for PBXNativeTarget "message-in-a-bottle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B0BBE271DE0980E0018E274 /* Debug */,
+				1B0BBE281DE0980E0018E274 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1B0BBE0C1DE0980E0018E274 /* Project object */;
+}
